@@ -8,11 +8,12 @@ namespace KusteezFormApp.Models
     public class FormDetails
     {
         public string gamerTag { get; set; }
-
+        public string clothingType { get; set; }
 
         public FormDetails()
         {
             this.gamerTag = string.Empty;
+            this.clothingType = string.Empty;
         }
 
     }

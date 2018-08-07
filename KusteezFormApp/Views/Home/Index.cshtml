@@ -5,7 +5,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<link rel="stylesheet" href="~/css/index.css?v=2" />
+<link rel="stylesheet" href="~/css/index.css?v=3" />
 
 <div class="titleSection" >
     <div class="imageLogo">
@@ -29,6 +29,15 @@
 
         <div class="editor-field">
             @Html.EditorFor(model => model.gamerTag)
+        </div>
+    </div>
+    <br/>
+    <div class="clothingSection">
+        <div class="clothingTitle">
+            <h4>Vêtement / Clothing</h4>
+        </div>
+        <div class="clothingOptions">
+            @*@Html.RadioButtonFor*@
         </div>
     </div>
         <button type="submit" value="submit">SUBMIT</button>
