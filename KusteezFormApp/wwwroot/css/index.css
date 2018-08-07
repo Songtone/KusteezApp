@@ -27,3 +27,22 @@
     border-color: black;
     border-width: 2px;*/
 }
+
+.formSection {
+    padding-top: 1%;
+    width: 50%;
+    margin: 0 auto;
+    border: solid;
+    border-color: black;
+    border-width: 2px;
+    align-content:center;
+}
+
+.gamerTagSection {
+    text-align: center;
+    width: 25%;
+    margin: 0 auto;
+    border: solid;
+    border-color: black;
+    border-width: 2px;
+}
