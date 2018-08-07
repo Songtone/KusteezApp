@@ -30,7 +30,7 @@
 
 .formSection {
     padding-top: 1%;
-    width: 50%;
+    width: 55%;
     margin: 0 auto;
     border: solid;
     border-color: black;
@@ -42,14 +42,15 @@
     text-align: center;
     width: 25%;
     margin: 0 auto;
-    border: solid;
+    /*border: solid;
     border-color: black;
-    border-width: 2px;
+    border-width: 2px;*/
+    padding: 1%;
 }
 
 .clothingSection {
-    text-align: center;
-    border: solid;
+    text-align:center;
+    /*border: solid;
     border-color: black;
-    border-width: 2px;
+    border-width: 2px;*/
 }
