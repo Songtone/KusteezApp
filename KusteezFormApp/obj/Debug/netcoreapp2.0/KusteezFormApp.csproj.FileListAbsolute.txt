@@ -1,0 +1,11 @@
+D:\Apps\KusteezFormApp\KusteezFormApp\bin\Debug\netcoreapp2.0\KusteezFormApp.deps.json
+D:\Apps\KusteezFormApp\KusteezFormApp\bin\Debug\netcoreapp2.0\KusteezFormApp.runtimeconfig.json
+D:\Apps\KusteezFormApp\KusteezFormApp\bin\Debug\netcoreapp2.0\KusteezFormApp.runtimeconfig.dev.json
+D:\Apps\KusteezFormApp\KusteezFormApp\bin\Debug\netcoreapp2.0\KusteezFormApp.dll
+D:\Apps\KusteezFormApp\KusteezFormApp\bin\Debug\netcoreapp2.0\KusteezFormApp.pdb
+D:\Apps\KusteezFormApp\KusteezFormApp\obj\Debug\netcoreapp2.0\KusteezFormApp.csprojAssemblyReference.cache
+D:\Apps\KusteezFormApp\KusteezFormApp\obj\Debug\netcoreapp2.0\KusteezFormApp.csproj.CoreCompileInputs.cache
+D:\Apps\KusteezFormApp\KusteezFormApp\obj\Debug\netcoreapp2.0\KusteezFormApp.AssemblyInfoInputs.cache
+D:\Apps\KusteezFormApp\KusteezFormApp\obj\Debug\netcoreapp2.0\KusteezFormApp.AssemblyInfo.cs
+D:\Apps\KusteezFormApp\KusteezFormApp\obj\Debug\netcoreapp2.0\KusteezFormApp.dll
+D:\Apps\KusteezFormApp\KusteezFormApp\obj\Debug\netcoreapp2.0\KusteezFormApp.pdb
