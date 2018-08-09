@@ -11,27 +11,24 @@ namespace KusteezFormApp.DataReader
     {
         public int Insert(FormDetails fd)
         {
-            
+
+            string score = fd.gamerTag;
+
             //This is my connection string i have assigned the database file address path  
             string sql = "server=localhost;user id=root;password=1234;database=testing";
             MySqlConnection conn = new MySqlConnection(sql);
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "insert into testing (name) values ('TheBest')";
-            MySqlTransaction transaction = null;
+            cmd.Parameters.AddWithValue("@score", score);
+            cmd.CommandText = "insert into testing (name) values (@score)";
 
-            try
-            {
-                 conn.Open();
-                 transaction= conn.BeginTransaction();
-                cmd.ExecuteNonQuery();
-            }
-            catch
-            {
-                transaction.Rollback();
-                return 0;
-            }
+            conn.Open();
 
-          
+            cmd.ExecuteNonQuery();
+
+
+            conn.Close();
+
+
 
             conn.Close();
             return 0;
