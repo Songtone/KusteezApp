@@ -13,48 +13,53 @@ namespace KusteezFormApp.Controllers
     {
         public IActionResult Index()
         {
-            FormDetails fd = new FormDetails();
+            string score = "hey";
+           
             //This is my connection string i have assigned the database file address path  
             string sql = "server=localhost;user id=root;password=1234;database=testing";
             MySqlConnection conn = new MySqlConnection(sql);
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "select name from testing where idtesting = 1";
+            cmd.Parameters.AddWithValue("@score", score);
+            cmd.CommandText = "insert into testing (name) values (@score)";
+        
+            conn.Open();
 
-            try
-            {
-                conn.Open();
-            }
-            catch
-            {
-                return View();
-            }
-
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                fd.clothingType = reader["name"].ToString();
-            }
-
+                cmd.ExecuteNonQuery();
+            
+               
             conn.Close();
             return View();
         }
 
-        public IActionResult About()
-        {
+        //[HttpPost]
+        //public ActionResult Submit(FormDetails fd)
+        //{
            
-                
-             
+        //    //This is my connection string i have assigned the database file address path  
+        //    string sql = "server=localhost;user id=root;password=1234;database=testing";
+        //    MySqlConnection conn = new MySqlConnection(sql);
+        //    MySqlCommand cmd = conn.CreateCommand();
+        //    cmd.CommandText = "select name from testing where idtesting = 1";
 
-            return View();
-        }
+        //    try
+        //    {
+        //        conn.Open();
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
+        //    MySqlDataReader reader = cmd.ExecuteReader();
 
-            return View();
-        }
+        //    while (reader.Read())
+        //    {
+        //        fd.clothingType = reader["name"].ToString();
+        //    }
+
+        //    conn.Close();
+        //    return View("Index", fd);
+        //}
 
         public IActionResult Error()
         {

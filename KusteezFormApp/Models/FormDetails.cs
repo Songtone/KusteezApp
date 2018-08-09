@@ -12,7 +12,7 @@ namespace KusteezFormApp.Models
 
         public FormDetails()
         {
-            this.gamerTag = string.Empty;
+            this.gamerTag = null;
             this.clothingType = string.Empty;
         }
 
