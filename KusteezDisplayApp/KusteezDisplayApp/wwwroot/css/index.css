@@ -1,0 +1,18 @@
+﻿body {
+}
+
+.informationTable{
+    margin-top:5%;
+    margin-bottom: 3%;
+    /*border-style: solid;
+    border-color: black;
+    border-width:2px;*/
+    text-align: center;
+}
+.displayTable {
+    /*border-style: solid;
+    border-color: black;
+    border-width: 2px;*/
+   margin: 0 auto;
+
+}

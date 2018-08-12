@@ -4,11 +4,12 @@
     ViewData["Title"] = "Home Page";
 }
 
+<link rel="stylesheet" href="~/css/index.css?v=1" />
 
 <div class="informationTable">
 
-    <div class="tableTitle"><h5>Orders</h5></div>
-    <table class="table table-striped" >
+    <div class="tableTitle"><h2>Orders</h2></div>
+    <table border="1" class="displayTable " >
         <tr>
             <th>Order ID</th>
             <th>Gamer Tag</th>
@@ -18,7 +19,7 @@
        @foreach (var info in Model)
        {
             <tr>
-                <td>@info.orderID</td>
+                <td> @info.orderID</td>
                 <td>@info.gamerTag</td>
                 <td>@info.clothingType</td>
                 <td>@info.size</td>
