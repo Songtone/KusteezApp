@@ -17,7 +17,7 @@ namespace KusteezDisplayApp.DataReader
             MySqlConnection conn = new MySqlConnection(sql);
             MySqlCommand cmd = conn.CreateCommand();
 
-            cmd.CommandText = "select gamerTag, clothing from kusteezform";
+            cmd.CommandText = "select orderID,gamerTag, clothing, size from kusteezform";
 
             List<FormInformation> infoList = new List<FormInformation>();
             
@@ -29,8 +29,10 @@ namespace KusteezDisplayApp.DataReader
             {
                 FormInformation fi = new FormInformation();
 
+                fi.orderID = reader["orderID"] == null ? 0 : Convert.ToInt32(reader["orderID"]);
                 fi.gamerTag = reader["gamerTag"].ToString();
                 fi.clothingType = reader["clothing"].ToString();
+                fi.size = reader["size"].ToString();
 
                infoList.Add(fi);
             }

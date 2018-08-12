@@ -8,8 +8,9 @@
 <div class="informationTable">
 
     <div class="tableTitle"><h5>Orders</h5></div>
-    <table class="table table-striped">
+    <table class="table table-striped" >
         <tr>
+            <th>Order ID</th>
             <th>Gamer Tag</th>
             <th>Clothing</th>
             <th>Size</th>
@@ -17,8 +18,10 @@
        @foreach (var info in Model)
        {
             <tr>
+                <td>@info.orderID</td>
                 <td>@info.gamerTag</td>
                 <td>@info.clothingType</td>
+                <td>@info.size</td>
             </tr>
        }
 

@@ -7,7 +7,7 @@ namespace KusteezDisplayApp.Models
 {
     public class FormInformation
     {
-
+        public int orderID { get; set; }
         public string gamerTag { get; set; }
         public string clothingType { get; set; }
         public string size { get; set; }
@@ -15,6 +15,7 @@ namespace KusteezDisplayApp.Models
 
         public FormInformation()
         {
+            this.orderID = 0;
             this.gamerTag = null;
             this.clothingType = string.Empty;
             this.size = string.Empty;

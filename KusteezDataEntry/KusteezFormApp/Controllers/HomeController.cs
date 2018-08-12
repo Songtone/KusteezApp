@@ -39,6 +39,7 @@ namespace KusteezFormApp.Controllers
 
             FormInsert finsert = new FormInsert();
             int Result = finsert.Insert(fd);
+
             return View("Index", fd);
         }
 
