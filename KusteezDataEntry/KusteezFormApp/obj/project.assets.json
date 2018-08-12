@@ -13037,11 +13037,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Apps\\KusteezFormApp\\KusteezDataEntry\\KusteezFormApp\\KusteezFormApp.csproj",
+      "projectUniqueName": "D:\\Apps\\KusteezApp\\KusteezDataEntry\\KusteezFormApp\\KusteezFormApp.csproj",
       "projectName": "KusteezFormApp",
-      "projectPath": "D:\\Apps\\KusteezFormApp\\KusteezDataEntry\\KusteezFormApp\\KusteezFormApp.csproj",
+      "projectPath": "D:\\Apps\\KusteezApp\\KusteezDataEntry\\KusteezFormApp\\KusteezFormApp.csproj",
       "packagesPath": "C:\\Users\\songt\\.nuget\\packages\\",
-      "outputPath": "D:\\Apps\\KusteezFormApp\\KusteezDataEntry\\KusteezFormApp\\obj\\",
+      "outputPath": "D:\\Apps\\KusteezApp\\KusteezDataEntry\\KusteezFormApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

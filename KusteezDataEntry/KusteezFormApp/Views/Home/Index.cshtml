@@ -5,7 +5,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<link rel="stylesheet" href="~/css/index.css?v=5" />
+<link rel="stylesheet" href="~/css/index.css?v=6" />
 
 <div class="titleSection" >
     <div class="imageLogo">
@@ -55,6 +55,32 @@
             <br />
             @Html.RadioButtonFor(model => model.clothingType, "LEM", new { id = "LEM" })
             @Html.Label("LEM", "LAN ETS MERCH 5.00$ (Print only/Impression seulement")
+        </div>
+    </div>
+
+    <div class="sizeSection">
+        <div class="sizeTitle">
+            <h2>Taille / Size</h2>
+        </div>
+        <div class="clothingOptions">
+
+            @Html.RadioButtonFor(model => model.size, "S", new { id = "S" })
+            @Html.Label("S", "Small")
+
+            @Html.RadioButtonFor(model => model.size, "M", new { id = "M" })
+            @Html.Label("M", "Medium")
+
+            @Html.RadioButtonFor(model => model.size, "L", new { id = "L" })
+            @Html.Label("L", "Large")
+
+            @Html.RadioButtonFor(model => model.size, "XL", new { id = "XL" })
+            @Html.Label("XL", "Extra Large")
+
+            @Html.RadioButtonFor(model => model.size, "2XL", new { id = "2XL" })
+            @Html.Label("2XL", "2x Extra Large")
+            
+            @Html.RadioButtonFor(model => model.size, "3XL", new { id = "3XL" })
+            @Html.Label("3XL", "3x Extra Large")
         </div>
     </div>
     <br />

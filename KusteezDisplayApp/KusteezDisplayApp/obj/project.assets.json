@@ -12867,11 +12867,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Apps\\KusteezFormApp\\KusteezDisplayApp\\KusteezDisplayApp\\KusteezDisplayApp.csproj",
+      "projectUniqueName": "D:\\Apps\\KusteezApp\\KusteezDisplayApp\\KusteezDisplayApp\\KusteezDisplayApp.csproj",
       "projectName": "KusteezDisplayApp",
-      "projectPath": "D:\\Apps\\KusteezFormApp\\KusteezDisplayApp\\KusteezDisplayApp\\KusteezDisplayApp.csproj",
+      "projectPath": "D:\\Apps\\KusteezApp\\KusteezDisplayApp\\KusteezDisplayApp\\KusteezDisplayApp.csproj",
       "packagesPath": "C:\\Users\\songt\\.nuget\\packages\\",
-      "outputPath": "D:\\Apps\\KusteezFormApp\\KusteezDisplayApp\\KusteezDisplayApp\\obj\\",
+      "outputPath": "D:\\Apps\\KusteezApp\\KusteezDisplayApp\\KusteezDisplayApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
