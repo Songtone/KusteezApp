@@ -9,7 +9,7 @@ namespace KusteezDisplayApp.DataReader
 {
     public class InformationReader
     {
-        public InformationReader GetInformation(FormInformation fi){
+        public static List<FormInformation> GetInformation(){
             
 
             InformationReader info = new InformationReader();
@@ -19,17 +19,23 @@ namespace KusteezDisplayApp.DataReader
 
             cmd.CommandText = "select gamerTag, clothing from kusteezform";
 
+            List<FormInformation> infoList = new List<FormInformation>();
+            
             conn.Open();
 
             MySqlDataReader reader = cmd.ExecuteReader();
 
-            if (reader.Read())
+            while (reader.Read())
             {
+                FormInformation fi = new FormInformation();
+
                 fi.gamerTag = reader["gamerTag"].ToString();
                 fi.clothingType = reader["clothing"].ToString();
-            }
 
-            return info;
+               infoList.Add(fi);
+            }
+            conn.Close();
+            return infoList;
             }
             
     }

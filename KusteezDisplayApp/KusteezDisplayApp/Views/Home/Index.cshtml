@@ -1,11 +1,30 @@
 ﻿@using KusteezDisplayApp.Models;
-@model FormInformation;
+@model IList<KusteezDisplayApp.Models.FormInformation>;
 @{
     ViewData["Title"] = "Home Page";
 }
 
-@Html.DisplayFor(model => model.gamerTag)
-@Html.DisplayFor(model => model.clothingType)
+
+<div class="informationTable">
+
+    <div class="tableTitle"><h5>Orders</h5></div>
+    <table class="table table-striped">
+        <tr>
+            <th>Gamer Tag</th>
+            <th>Clothing</th>
+            <th>Size</th>
+        </tr>
+       @foreach (var info in Model)
+       {
+            <tr>
+                <td>@info.gamerTag</td>
+                <td>@info.clothingType</td>
+            </tr>
+       }
+
+    </table>
+</div>
+
 
 
 

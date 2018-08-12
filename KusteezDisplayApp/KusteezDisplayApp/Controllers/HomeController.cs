@@ -13,10 +13,11 @@ namespace KusteezDisplayApp.Controllers
     {
         public IActionResult Index()
         {
-            InformationReader IR = new InformationReader();
             FormInformation fi = new FormInformation();
-            IR.GetInformation(fi);
-            return View("Index",fi);
+            
+            fi.OrdersList = InformationReader.GetInformation();
+           
+            return View(fi.OrdersList);
         }
 
        

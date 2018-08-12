@@ -71,7 +71,8 @@ namespace KusteezFormApp.DataReader
             MySqlCommand cmd = conn.CreateCommand();
             cmd.Parameters.AddWithValue("@gamerTag1", gamerTag1);
             cmd.Parameters.AddWithValue("@clothingType1", clothingType1);
-            cmd.CommandText = "insert into kusteezform (gamerTag, clothing) values (@gamerTag1,@clothingType1)";
+            cmd.Parameters.AddWithValue("@sizeType1", sizeType1);
+            cmd.CommandText = "insert into kusteezform (gamerTag, clothing,size ) values (@gamerTag1,@clothingType1, @sizeType1)";
 
             conn.Open();
 
