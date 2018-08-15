@@ -14,23 +14,12 @@ namespace KusteezFormApp.Controllers
     {
         public IActionResult Index()
         {
-            //string score = "hello";
+            FormInsert sizeReader = new FormInsert();
+            List<SizeReference> sizeRef = sizeReader.GetSizeReferences();
+            FormDetails formDetails = new FormDetails();
 
-            ////This is my connection string i have assigned the database file address path  
-            //string sql = "server=localhost;user id=root;password=1234;database=testing";
-            //MySqlConnection conn = new MySqlConnection(sql);
-            //MySqlCommand cmd = conn.CreateCommand();
-            //cmd.Parameters.AddWithValue("@score", score);
-            //cmd.CommandText = "insert into testing (name) values (@score)";
-
-            //conn.Open();
-
-            //    cmd.ExecuteNonQuery();
-
-
-            //conn.Close();
-            
-            return View("Index");
+            formDetails.sizes = sizeRef;
+            return View("Index",formDetails);
         }
 
         [HttpPost]

@@ -58,7 +58,7 @@
         </div>
     </div>
 
-    <div class="sizeSection">
+    @*<div class="sizeSection">
         <div class="sizeTitle">
             <h2>Taille / Size</h2>
         </div>
@@ -82,7 +82,9 @@
             @Html.RadioButtonFor(model => model.size, "3XL", new { id = "3XL" })
             @Html.Label("3XL", "3x Extra Large")
         </div>
-    </div>
+    </div>*@
+
+        @Html.DropDownListFor(model => model.sizeCode, new SelectList(Model.sizes, "cd","descr", ""), new { @class = "btn-default"})
     <br />
         <button type="submit" style="margin-left: 45%;" value="submit">SUBMIT</button>
 
