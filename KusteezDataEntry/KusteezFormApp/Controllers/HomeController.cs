@@ -12,24 +12,25 @@ namespace KusteezFormApp.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public ActionResult Index()
         {
             FormInsert sizeReader = new FormInsert();
             List<SizeReference> sizeRef = sizeReader.GetSizeReferences();
             FormDetails formDetails = new FormDetails();
 
             formDetails.sizes = sizeRef;
+
             return View("Index",formDetails);
         }
 
         [HttpPost]
         public ActionResult Submit(FormDetails fd)
         {
-
+          
             FormInsert finsert = new FormInsert();
             int Result = finsert.Insert(fd);
 
-            return View("Index", fd);
+            return RedirectToAction("Index",fd);
         }
 
         
