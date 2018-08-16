@@ -15,10 +15,13 @@ namespace KusteezFormApp.Controllers
         public ActionResult Index()
         {
             FormInsert sizeReader = new FormInsert();
+            FormInsert clothesColorReader = new FormInsert();
             List<SizeReference> sizeRef = sizeReader.GetSizeReferences();
+            List<ClothesColorReference> clothesColorRef = clothesColorReader.GetClothesColorReference();
             FormDetails formDetails = new FormDetails();
 
             formDetails.sizes = sizeRef;
+            formDetails.clothesColor = clothesColorRef;
 
             return View("Index",formDetails);
         }

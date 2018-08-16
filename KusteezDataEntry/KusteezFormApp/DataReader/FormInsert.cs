@@ -79,7 +79,8 @@ namespace KusteezFormApp.DataReader
             cmd.Parameters.AddWithValue("@gamerTag1", gamerTag1);
             cmd.Parameters.AddWithValue("@clothingType1", clothingType1);
             cmd.Parameters.AddWithValue("@sizeType1", sizeType1);
-            cmd.CommandText = "insert into kusteezform (gamerTag, clothing,size ) values (@gamerTag1, @clothingType1, @sizeType1)";
+            cmd.Parameters.AddWithValue("@clothingColor1", clothingColor1);
+            cmd.CommandText = "insert into kusteezform (gamerTag, clothing, size, color ) values (@gamerTag1, @clothingType1, @sizeType1, @clothingColor1)";
 
             conn.Open();
 

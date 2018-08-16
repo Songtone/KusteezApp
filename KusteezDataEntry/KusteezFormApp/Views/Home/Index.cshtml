@@ -22,70 +22,72 @@
         @Html.AntiForgeryToken();
         @Html.ValidationSummary(true);
 
-    <div class="gamerTagSection">
-        <div class="editor-label">
-            Gamer Tag!
+        <div class="gamerTagSection">
+            <div class="editor-label">
+                Gamer Tag!
+            </div>
+
+            <div class="editor-field">
+                @Html.EditorFor(model => model.gamerTag)
+            </div>
+        </div>
+        <br />
+        <div class="clothingSection">
+            <div class="clothingTitle">
+                <h2>Vêtement / Clothing</h2>
+            </div>
+            <div class="clothingOptions">
+
+                @Html.RadioButtonFor(model => model.clothingType, "TS", new { id = "TS" })
+                @Html.Label("TS", "T-SHIRT 20.00$")
+
+                @Html.RadioButtonFor(model => model.clothingType, "TSF", new { id = "TFS" })
+                @Html.Label("TSF", "T-SHIRT FEMME 20.00$")
+
+                @Html.RadioButtonFor(model => model.clothingType, "H", new { id = "H" })
+                @Html.Label("H", "HOODIE 35.00$")
+
+                @Html.RadioButtonFor(model => model.clothingType, "LT", new { id = "LT" })
+                @Html.Label("LT", "LONG TEE 25.00$")
+
+                @Html.RadioButtonFor(model => model.clothingType, "PO", new { id = "PO" })
+                @Html.Label("PO", "PULL-OVER 30.00$")
+                <br />
+                @Html.RadioButtonFor(model => model.clothingType, "LEM", new { id = "LEM" })
+                @Html.Label("LEM", "LAN ETS MERCH 5.00$ (Print only/Impression seulement")
+            </div>
         </div>
 
-        <div class="editor-field">
-            @Html.EditorFor(model => model.gamerTag)
-        </div>
-    </div>
-    <br/>
-    <div class="clothingSection">
-        <div class="clothingTitle">
-            <h2>Vêtement / Clothing</h2>
-        </div>
-        <div class="clothingOptions">
+        @*<div class="sizeSection">
+                <div class="sizeTitle">
+                    <h2>Taille / Size</h2>
+                </div>
+                <div class="clothingOptions">
 
-            @Html.RadioButtonFor(model => model.clothingType, "TS", new { id = "TS" })
-            @Html.Label("TS", "T-SHIRT 20.00$")
+                    @Html.RadioButtonFor(model => model.size, "S", new { id = "S" })
+                    @Html.Label("S", "Small")
 
-            @Html.RadioButtonFor(model => model.clothingType, "TSF", new { id = "TFS" })
-            @Html.Label("TSF", "T-SHIRT FEMME 20.00$")
+                    @Html.RadioButtonFor(model => model.size, "M", new { id = "M" })
+                    @Html.Label("M", "Medium")
 
-            @Html.RadioButtonFor(model => model.clothingType, "H", new { id = "H" })
-            @Html.Label("H", "HOODIE 35.00$")
+                    @Html.RadioButtonFor(model => model.size, "L", new { id = "L" })
+                    @Html.Label("L", "Large")
 
-            @Html.RadioButtonFor(model => model.clothingType, "LT", new { id = "LT" })
-            @Html.Label("LT", "LONG TEE 25.00$")
+                    @Html.RadioButtonFor(model => model.size, "XL", new { id = "XL" })
+                    @Html.Label("XL", "Extra Large")
 
-            @Html.RadioButtonFor(model => model.clothingType, "PO", new { id = "PO" })
-            @Html.Label("PO", "PULL-OVER 30.00$")
-            <br />
-            @Html.RadioButtonFor(model => model.clothingType, "LEM", new { id = "LEM" })
-            @Html.Label("LEM", "LAN ETS MERCH 5.00$ (Print only/Impression seulement")
-        </div>
-    </div>
+                    @Html.RadioButtonFor(model => model.size, "2XL", new { id = "2XL" })
+                    @Html.Label("2XL", "2x Extra Large")
 
-    @*<div class="sizeSection">
-        <div class="sizeTitle">
-            <h2>Taille / Size</h2>
-        </div>
-        <div class="clothingOptions">
+                    @Html.RadioButtonFor(model => model.size, "3XL", new { id = "3XL" })
+                    @Html.Label("3XL", "3x Extra Large")
+                </div>
+            </div>*@
 
-            @Html.RadioButtonFor(model => model.size, "S", new { id = "S" })
-            @Html.Label("S", "Small")
-
-            @Html.RadioButtonFor(model => model.size, "M", new { id = "M" })
-            @Html.Label("M", "Medium")
-
-            @Html.RadioButtonFor(model => model.size, "L", new { id = "L" })
-            @Html.Label("L", "Large")
-
-            @Html.RadioButtonFor(model => model.size, "XL", new { id = "XL" })
-            @Html.Label("XL", "Extra Large")
-
-            @Html.RadioButtonFor(model => model.size, "2XL", new { id = "2XL" })
-            @Html.Label("2XL", "2x Extra Large")
-            
-            @Html.RadioButtonFor(model => model.size, "3XL", new { id = "3XL" })
-            @Html.Label("3XL", "3x Extra Large")
-        </div>
-    </div>*@
-
-        @Html.DropDownListFor(model => model.sizeCode, new SelectList(Model.sizes, "cd","descr", ""), new { @class = "btn-default"})
-    <br />
+        @Html.DropDownListFor(model => model.sizeCode, new SelectList(Model.sizes, "cd", "descr", ""), new { @class = "btn-default" })
+        <br/>
+        @Html.DropDownListFor(model => model.clothesColorCode, new SelectList(Model.clothesColor, "clothColCode", "clothColDescr", ""), new { @class = "btn-default" })
+        <br />
         <button type="submit" style="margin-left: 45%;" value="submit">SUBMIT</button>
 
     }
