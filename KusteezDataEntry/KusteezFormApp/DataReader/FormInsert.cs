@@ -73,6 +73,18 @@ namespace KusteezFormApp.DataReader
             {
                 clothingColor1 = "Red";
             }
+            else if(fd.clothesColorCode == "02")
+            {
+                clothingColor1 = "Purple";
+            }
+            else if(fd.clothesColorCode == "03")
+            {
+                clothingColor1 = "Blue";
+            }
+            else if(fd.clothesColorCode == "04")
+            {
+                clothingColor1 = " Green";
+            }
             string sql = "server=localhost;user id=root;password=1234;database=kusteez";
             MySqlConnection conn = new MySqlConnection(sql);
             MySqlCommand cmd = conn.CreateCommand();
