@@ -14,14 +14,16 @@ namespace KusteezFormApp.DataReader
 
             string gamerTag1 = fd.gamerTag;
             string clothingType1 = fd.clothingType;
-            string sizeType1 = fd.sizeType; 
+            string sizeType1 = fd.sizeType;
+            string clothingColor1 = fd.clothesColorType;
 
             //This is my connection string i have assigned the database file address path  
-            if(fd.clothingType == "TS")
+            if (fd.clothingType == "TS")
             {
                 clothingType1 = "T-Shirt 20.00$";
 
-            }else if(fd.clothingType == "TSF")
+            }
+            else if (fd.clothingType == "TSF")
             {
                 clothingType1 = "T-SHIRT FEMME 20.00$";
             }
@@ -67,6 +69,10 @@ namespace KusteezFormApp.DataReader
                 sizeType1 = "3x Extra Large";
             }
 
+            if(fd.clothesColorCode == "01")
+            {
+                clothingColor1 = "Red";
+            }
             string sql = "server=localhost;user id=root;password=1234;database=kusteez";
             MySqlConnection conn = new MySqlConnection(sql);
             MySqlCommand cmd = conn.CreateCommand();
@@ -81,7 +87,7 @@ namespace KusteezFormApp.DataReader
 
 
             conn.Close();
-            
+
             return 0;
         }
 
@@ -140,7 +146,49 @@ namespace KusteezFormApp.DataReader
             return sizes;
 
         }
-            
-        
+
+
+        public List<ClothesColorReference> GetClothesColorReference(){
+
+            List<ClothesColorReference> clothesColor = new List<ClothesColorReference>();
+
+            ClothesColorReference clothesColorRef = new ClothesColorReference();
+
+            clothesColorRef.clothColCode = "";
+            clothesColorRef.clothColDescr = "";
+
+            clothesColor.Add(clothesColorRef);
+
+            ClothesColorReference clothesColorRef1 = new ClothesColorReference();
+
+            clothesColorRef1.clothColCode = "01";
+            clothesColorRef1.clothColDescr = "Red";
+
+            clothesColor.Add(clothesColorRef1);
+
+            ClothesColorReference clothesColorRef2 = new ClothesColorReference();
+
+            clothesColorRef2.clothColCode = "02";
+            clothesColorRef2.clothColDescr = "Purple";
+
+            clothesColor.Add(clothesColorRef2);
+
+            ClothesColorReference clothesColorRef3 = new ClothesColorReference();
+
+            clothesColorRef3.clothColCode = "03";
+            clothesColorRef3.clothColDescr = "Blue";
+
+            clothesColor.Add(clothesColorRef3);
+
+            ClothesColorReference clothesColorRef4 = new ClothesColorReference();
+
+            clothesColorRef4.clothColCode = "04";
+            clothesColorRef4.clothColDescr = "Green";
+
+            clothesColor.Add(clothesColorRef4);
+
+            return clothesColor;
+    }
+
     }
 }
