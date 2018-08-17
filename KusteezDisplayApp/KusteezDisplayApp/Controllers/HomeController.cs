@@ -17,7 +17,7 @@ namespace KusteezDisplayApp.Controllers
             
             fi.OrdersList = InformationReader.GetInformation();
            
-            return View(fi.OrdersList);
+            return View(fi);
         }
 
        
