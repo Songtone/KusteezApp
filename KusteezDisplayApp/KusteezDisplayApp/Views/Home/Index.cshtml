@@ -15,6 +15,8 @@
             <th>Gamer Tag</th>
             <th>Clothing</th>
             <th>Size</th>
+            <th>Print Color</th>
+            <th>Status</th>
         </tr>
        @foreach (var info in Model)
        {
@@ -23,10 +25,12 @@
                 <td>@info.gamerTag</td>
                 <td>@info.clothingType</td>
                 <td>@info.size</td>
+                <td>@info.printColor</td>
+                <td>@info.status</td>
             </tr>
        }
-
     </table>
+
 </div>
 
 

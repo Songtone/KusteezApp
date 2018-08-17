@@ -20,7 +20,10 @@ namespace KusteezDisplayApp.Controllers
             return View(fi.OrdersList);
         }
 
-       
+       //public IActionResult Completed()
+       // {
+
+       // }
 
         public IActionResult Error()
         {

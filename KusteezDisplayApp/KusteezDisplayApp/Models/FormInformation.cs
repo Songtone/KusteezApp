@@ -11,6 +11,8 @@ namespace KusteezDisplayApp.Models
         public string gamerTag { get; set; }
         public string clothingType { get; set; }
         public string size { get; set; }
+        public string printColor { get; set; }
+        public string status { get; set; }
         public List<FormInformation> OrdersList { get; set; } 
 
         public FormInformation()
@@ -19,6 +21,8 @@ namespace KusteezDisplayApp.Models
             this.gamerTag = null;
             this.clothingType = string.Empty;
             this.size = string.Empty;
+            this.printColor = string.Empty;
+            this.status = string.Empty;
             this.OrdersList = new List<FormInformation>();
         }
     }

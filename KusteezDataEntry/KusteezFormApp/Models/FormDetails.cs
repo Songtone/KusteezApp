@@ -13,9 +13,14 @@ namespace KusteezFormApp.Models
         public List<SizeReference> sizes { get; set; }
         public string sizeCode { get; set; }
         public string sizeType { get; set; }
+
         public List<ClothesColorReference> clothesColor { get; set; }
         public string clothesColorCode { get; set; }
         public string clothesColorType { get; set; }
+
+        public List<PrintColorReference> printColor { get; set; }
+        public string printColorCode { get; set; }
+        public string printColorType { get; set; }
 
         public FormDetails()
         {
@@ -29,6 +34,10 @@ namespace KusteezFormApp.Models
             this.clothesColor = new List<ClothesColorReference>();
             this.clothesColorCode = string.Empty;
             this.clothesColorType = string.Empty;
+
+            this.printColor = new List<PrintColorReference>();
+            this.printColorCode = string.Empty;
+            this.printColorType = string.Empty;
         }
 
     }

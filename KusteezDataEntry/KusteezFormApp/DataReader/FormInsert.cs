@@ -16,6 +16,8 @@ namespace KusteezFormApp.DataReader
             string clothingType1 = fd.clothingType;
             string sizeType1 = fd.sizeType;
             string clothingColor1 = fd.clothesColorType;
+            string printColor1 = fd.printColorType;
+            string completeTask = "Not Completed";
 
             //This is my connection string i have assigned the database file address path  
             if (fd.clothingType == "TS")
@@ -85,14 +87,33 @@ namespace KusteezFormApp.DataReader
             {
                 clothingColor1 = " Green";
             }
+
+
+            if (fd.printColorCode == "01")
+            {
+                printColor1 = "White";
+            }
+            else if (fd.printColorCode == "02")
+            {
+                printColor1 = "Black";
+            }
+            else if (fd.printColorCode == "03")
+            {
+                printColor1 = "Yellow";
+            }
+
             string sql = "server=localhost;user id=root;password=1234;database=kusteez";
             MySqlConnection conn = new MySqlConnection(sql);
             MySqlCommand cmd = conn.CreateCommand();
+
             cmd.Parameters.AddWithValue("@gamerTag1", gamerTag1);
             cmd.Parameters.AddWithValue("@clothingType1", clothingType1);
             cmd.Parameters.AddWithValue("@sizeType1", sizeType1);
             cmd.Parameters.AddWithValue("@clothingColor1", clothingColor1);
-            cmd.CommandText = "insert into kusteezform (gamerTag, clothing, size, color ) values (@gamerTag1, @clothingType1, @sizeType1, @clothingColor1)";
+            cmd.Parameters.AddWithValue("@printColor1", printColor1);
+            cmd.Parameters.AddWithValue("@completeTask", completeTask);
+
+            cmd.CommandText = "insert into kusteezform (gamerTag, clothing, size, color, printColor, status ) values (@gamerTag1, @clothingType1, @sizeType1, @clothingColor1, @printColor1, @completeTask)";
 
             conn.Open();
 
@@ -110,8 +131,8 @@ namespace KusteezFormApp.DataReader
 
             SizeReference sizeRef = new SizeReference();
 
-            sizeRef.cd = "";
-            sizeRef.descr = "";
+            sizeRef.cd = "00";
+            sizeRef.descr = "Choose a size";
 
             sizes.Add(sizeRef);
 
@@ -167,8 +188,8 @@ namespace KusteezFormApp.DataReader
 
             ClothesColorReference clothesColorRef = new ClothesColorReference();
 
-            clothesColorRef.clothColCode = "";
-            clothesColorRef.clothColDescr = "";
+            clothesColorRef.clothColCode = "00";
+            clothesColorRef.clothColDescr = "Choose a clothing color";
 
             clothesColor.Add(clothesColorRef);
 
@@ -202,6 +223,41 @@ namespace KusteezFormApp.DataReader
 
             return clothesColor;
     }
+        public List<PrintColorReference> GetPrintColorReference()
+        {
 
+            List<PrintColorReference> printColor = new List<PrintColorReference>();
+
+            PrintColorReference printColorRef = new PrintColorReference();
+
+            printColorRef.printColCode = "00";
+            printColorRef.printColDescr = "Choose a Color";
+
+            printColor.Add(printColorRef);
+
+            PrintColorReference printColorRef1 = new PrintColorReference();
+
+            printColorRef1.printColCode = "01";
+            printColorRef1.printColDescr = "White";
+
+            printColor.Add(printColorRef1);
+
+            PrintColorReference printColorRef2 = new PrintColorReference();
+
+            printColorRef2.printColCode = "02";
+            printColorRef2.printColDescr = "Black";
+
+            printColor.Add(printColorRef2);
+
+            PrintColorReference printColorRef3 = new PrintColorReference();
+
+            printColorRef3.printColCode = "03";
+            printColorRef3.printColDescr = "Yellow";
+
+            printColor.Add(printColorRef3);
+
+            return printColor;
+
+        }
     }
 }
