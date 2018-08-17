@@ -41,20 +41,21 @@ namespace KusteezDisplayApp.DataReader
             return infoList;
             }
 
-        public int insertCompletedStatus()
+        public int insertCompletedStatus(FormInformation fi)
         {
-            FormInformation fi = new FormInformation();
+            
             string completedID = fi.completedID;
             string taskCompleted = "Complete";
+            int x = Int32.Parse(completedID);
 
             string sql = "server=localhost;user id=root;password=1234;database=kusteez";
             MySqlConnection conn = new MySqlConnection(sql);
             MySqlCommand cmd = conn.CreateCommand();
 
             cmd.Parameters.AddWithValue("@taskCompleted1", taskCompleted);
-            cmd.Parameters.AddWithValue("@completedID1", completedID);
+            cmd.Parameters.AddWithValue("@completedID1", x);
 
-            cmd.CommandText = "insert into kusteezform (status ) values (@taskCompleted1) where orderID = @completedID";
+            cmd.CommandText = "update kusteezform set status = @taskCompleted1 where (orderID = @completedID1)";
 
             conn.Open();
 

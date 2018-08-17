@@ -20,7 +20,7 @@ namespace KusteezDisplayApp.Models
         public FormInformation()
         {
             this.orderID = 0;
-            this.completedID = "Completed";
+            this.completedID = string.Empty;
             this.gamerTag = null;
             this.clothingType = string.Empty;
             this.size = string.Empty;

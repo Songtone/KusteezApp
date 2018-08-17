@@ -10,7 +10,7 @@
 <div class="informationTable">
 
     <div class="tableTitle"><h2>Orders</h2></div>
-    <table border="1" class="displayTable " >
+    <table border="1" class="displayTable ">
         <tr>
             <th>Status</th>
             <th>Order ID</th>
@@ -20,25 +20,28 @@
             <th>Print Color</th>
 
         </tr>
-       @foreach (FormInformation info in Model.OrdersList)
-       {
-        <tr>
-            <td>@info.status</td>
-            <td>@info.orderID</td>
-            <td>@info.gamerTag</td>
-            <td>@info.clothingType</td>
-            <td>@info.size</td>
-            <td>@info.printColor</td>
+        @foreach (FormInformation info in Model.OrdersList)
+        {
+            <tr>
+                <td>@info.status</td>
+                <td>@info.orderID</td>
+                <td>@info.gamerTag</td>
+                <td>@info.clothingType</td>
+                <td>@info.size</td>
+                <td>@info.printColor</td>
 
-        </tr>
-       }
+            </tr>
+        }
     </table>
 
-    <div class="editor-field">
-        @Html.EditorFor(model => model.completedID)
-    </div>
-    
+    @using (Html.BeginForm("Confirm", "Home", FormMethod.Post))
+    {
+        <div class="editor-field">
+            @Html.EditorFor(model => model.completedID)
+        </div>
+
     <button type="submit" style="margin-left: 45%;" value="Confirm">CONFIRM</button>
+    }
 </div>
 
 

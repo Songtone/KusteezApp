@@ -13,14 +13,23 @@ namespace KusteezDisplayApp.Controllers
     {
         public IActionResult Index()
         {
+           
             FormInformation fi = new FormInformation();
             
             fi.OrdersList = InformationReader.GetInformation();
            
-            return View(fi);
+            return View("Index",fi);
         }
 
-       
+        [HttpPost]
+        public IActionResult Confirm(FormInformation fi)
+        {
+            InformationReader reader = new InformationReader();
+            int result = reader.insertCompletedStatus(fi);
+
+            return RedirectToAction("Index", fi);
+        }
+
 
         public IActionResult Error()
         {
