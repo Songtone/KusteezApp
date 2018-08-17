@@ -11,8 +11,7 @@ namespace KusteezDisplayApp.DataReader
     {
         public static List<FormInformation> GetInformation(){
             
-
-            InformationReader info = new InformationReader();
+            
             string sql = "server=localhost;user id=root;password=1234;database=kusteez";
             MySqlConnection conn = new MySqlConnection(sql);
             MySqlCommand cmd = conn.CreateCommand();
@@ -41,6 +40,31 @@ namespace KusteezDisplayApp.DataReader
             conn.Close();
             return infoList;
             }
+
+        public int insertCompletedStatus()
+        {
+            FormInformation fi = new FormInformation();
+            string completedID = fi.completedID;
+            string taskCompleted = "Complete";
+
+            string sql = "server=localhost;user id=root;password=1234;database=kusteez";
+            MySqlConnection conn = new MySqlConnection(sql);
+            MySqlCommand cmd = conn.CreateCommand();
+
+            cmd.Parameters.AddWithValue("@taskCompleted1", taskCompleted);
+            cmd.Parameters.AddWithValue("@completedID1", completedID);
+
+            cmd.CommandText = "insert into kusteezform (status ) values (@taskCompleted1) where orderID = @completedID";
+
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+
+            conn.Close();
+
+            return 0;
+        }
             
     }
 
