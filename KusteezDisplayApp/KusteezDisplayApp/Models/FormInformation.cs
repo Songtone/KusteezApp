@@ -8,6 +8,7 @@ namespace KusteezDisplayApp.Models
     public class FormInformation
     {
         public int orderID { get; set; }
+        public double finalCost { get; set; }
         public string completedID { get; set; }
         public string gamerTag { get; set; }
         public string clothingType { get; set; }
@@ -15,11 +16,13 @@ namespace KusteezDisplayApp.Models
         public string printColor { get; set; }
         public string status { get; set; }
         
+        
         public List<FormInformation> OrdersList { get; set; } 
 
         public FormInformation()
         {
             this.orderID = 0;
+            this.finalCost = 0.00;
             this.completedID = string.Empty;
             this.gamerTag = null;
             this.clothingType = string.Empty;

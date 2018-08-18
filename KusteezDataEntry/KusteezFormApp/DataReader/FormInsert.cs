@@ -9,6 +9,8 @@ namespace KusteezFormApp.DataReader
 {
     public class FormInsert
     {
+        double finalCost = 0.00;
+
         public int Insert(FormDetails fd)
         {
 
@@ -23,27 +25,32 @@ namespace KusteezFormApp.DataReader
             if (fd.clothingType == "TS")
             {
                 clothingType1 = "T-Shirt 20.00$";
-
+                finalCost += 20.00;
             }
             else if (fd.clothingType == "TSF")
             {
                 clothingType1 = "T-SHIRT FEMME 20.00$";
+                finalCost += 20.00;
             }
             else if (fd.clothingType == "H")
             {
                 clothingType1 = "HOODIE 35.00$";
+                finalCost += 35.00;
             }
             else if (fd.clothingType == "LT")
             {
                 clothingType1 = "LONG TEE 25.00$";
+                finalCost += 25.00;
             }
             else if (fd.clothingType == "PO")
             {
                 clothingType1 = "PULL-OVER 30.00$";
+                finalCost += 30.00;
             }
             else if (fd.clothingType == "LEM")
             {
                 clothingType1 = "LAN ETS MERCH 5.00$ (Print only/Impression seulement";
+                finalCost += 5.00;
             }
 
             if (fd.sizeCode == "S")
@@ -112,8 +119,9 @@ namespace KusteezFormApp.DataReader
             cmd.Parameters.AddWithValue("@clothingColor1", clothingColor1);
             cmd.Parameters.AddWithValue("@printColor1", printColor1);
             cmd.Parameters.AddWithValue("@completeTask", completeTask);
+            cmd.Parameters.AddWithValue("@finalCost", finalCost);
 
-            cmd.CommandText = "insert into kusteezform (gamerTag, clothing, size, color, printColor, status ) values (@gamerTag1, @clothingType1, @sizeType1, @clothingColor1, @printColor1, @completeTask)";
+            cmd.CommandText = "insert into kusteezform (gamerTag, clothing, size, color, printColor, status, finalCost ) values (@gamerTag1, @clothingType1, @sizeType1, @clothingColor1, @printColor1, @completeTask, @finalCost)";
 
             conn.Open();
 

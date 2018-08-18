@@ -31,13 +31,11 @@ namespace KusteezFormApp.Controllers
         [HttpPost]
         public ActionResult Submit(FormDetails fd)
         {
-          
             FormInsert finsert = new FormInsert();
             int Result = finsert.Insert(fd);
 
             return RedirectToAction("Index",fd);
         }
-
         
     }
 }
