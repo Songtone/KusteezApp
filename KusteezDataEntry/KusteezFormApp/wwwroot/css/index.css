@@ -30,6 +30,7 @@
 
 .formSection {
     padding-top: 1%;
+    padding-bottom:1%;
     width: 55%;
     margin: 0 auto;
     border: solid;
@@ -55,14 +56,40 @@
     border-width: 2px;*/
 }
 
-.sizeSection{
-    text-align: center;
-}
 
 .dropDownSection {
     text-align: center;
+    overflow: hidden;
     /*border: solid;
     border-color: black;
+    border-width: 2px;*/
+}
+
+.sizeSection {
+    text-align: center;
+    display:inline-block;
+    float:left;
+    margin-left:10%;
+    /*border: solid;
+    border-color: red;
+    border-width: 2px;*/
+}
+
+.clothingColorSection {
+    text-align: center;
+    display: inline-block;
+    /*border: solid;
+    border-color: red;
+    border-width: 2px;*/
+}
+
+.printColorSection {
+    text-align: center;
+    display: inline-block;
+    float: right;
+    margin-right: 10%;
+    /*border: solid;
+    border-color: red;
     border-width: 2px;*/
 }
 
@@ -75,4 +102,12 @@
 
 .confirmationSection{
     text-align: center;
+}
+
+.price {
+    padding: 1%;
+    display:inline-block;
+    /*border: solid;
+    border-color: black;
+    border-width: 2px;*/
 }

@@ -9,7 +9,7 @@
 <script>
 
 </script>
-<link rel="stylesheet" href="~/css/index.css?v=3" />
+<link rel="stylesheet" href="~/css/index.css?v=9" />
 
 <div class="titleSection">
     <div class="imageLogo">
@@ -63,15 +63,18 @@
         </div>
 
         <div class="dropDownSection">
-            <h4>Size</h4>
-            @Html.DropDownListFor(model => model.sizeCode, new SelectList(Model.sizes, "cd", "descr", ""), new { @class = "btn-default" })
-
-            <h4>Clothing Color</h4>
-            @Html.DropDownListFor(model => model.clothesColorCode, new SelectList(Model.clothesColor, "clothColCode", "clothColDescr", ""), new { @class = "btn-default" })
-
-            <h4>Print Color</h4>
-            @Html.DropDownListFor(model => model.printColorCode, new SelectList(Model.printColor, "printColCode", "printColDescr", ""), new { @class = "btn-default" })
-
+            <div class="sizeSection">
+                <h4>Size</h4>
+                @Html.DropDownListFor(model => model.sizeCode, new SelectList(Model.sizes, "cd", "descr", ""), new { @class = "btn-default" })
+            </div>
+            <div class="clothingColorSection">
+                <h4>Clothing Color</h4>
+                @Html.DropDownListFor(model => model.clothesColorCode, new SelectList(Model.clothesColor, "clothColCode", "clothColDescr", ""), new { @class = "btn-default" })
+            </div>
+            <div class="printColorSection">
+                <h4>Print Color</h4>
+                @Html.DropDownListFor(model => model.printColorCode, new SelectList(Model.printColor, "printColCode", "printColDescr", ""), new { @class = "btn-default" })
+            </div>
         </div>
 
         <div class="printLocationSection">
@@ -80,14 +83,16 @@
                 @Html.EditorFor(model => model.frontJersey)
             </div>
 
-            <h3>Left Sleeve Jersey</h3>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.leftSleeveJersey)
-            </div>
+            <div class="sleeveSection">
+                <h3>Left Sleeve Jersey</h3>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.leftSleeveJersey)
+                </div>
 
-            <h3>Right Sleeve Jersey</h3>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.rightSleeveJersey)
+                <h3>Right Sleeve Jersey</h3>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.rightSleeveJersey)
+                </div>
             </div>
 
             <h3>Top Back Jersey</h3>
@@ -102,22 +107,21 @@
 
         </div>
         <br />
-        
-        <div class="confirmationSection">
-            <div class="Price">
 
+        <div class="confirmationSection">
+            <div class="price">
                 <h4>Cost: @Html.DisplayFor(model => model.estimatedCost)</h4>
             </div>
 
             @Html.CheckBoxFor(model => model.confirmationButton)
             @Html.Label("confirm", "Confirmation")
             @*@Html.RadioButtonFor(model => model.confirmationButton, "yes", new { id = "yesButton" })
-        @Html.Label("confirm", "Confirmation")*@
+                @Html.Label("confirm", "Confirmation")*@
 
         </div>
-        <br/>
+        <br />
         <button type="submit" style="margin-left: 45%;" value="submit">Submit</button>
-
+        <br/>
     }
 
 </div>
