@@ -58,3 +58,17 @@
 .sizeSection{
     text-align: center;
 }
+
+.dropDownSection {
+    text-align: center;
+    /*border: solid;
+    border-color: black;
+    border-width: 2px;*/
+}
+
+.printLocationSection {
+    text-align:center;
+    /*border: solid;
+    border-color: black;
+    border-width: 2px;*/
+}

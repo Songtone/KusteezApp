@@ -5,7 +5,8 @@
     ViewData["Title"] = "Home Page";
 }
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="~/css/index.css?v=6" />
+
+<link rel="stylesheet" href="~/css/index.css?v=4" />
 
 <div class="titleSection">
     <div class="imageLogo">
@@ -58,42 +59,48 @@
             </div>
         </div>
 
-
-        @Html.DropDownListFor(model => model.sizeCode, new SelectList(Model.sizes, "cd", "descr", ""), new { @class = "btn-default" })
-        <br />
-        @Html.DropDownListFor(model => model.clothesColorCode, new SelectList(Model.clothesColor, "clothColCode", "clothColDescr", ""), new { @class = "btn-default" })
-        <br />
-        @Html.DropDownListFor(model => model.printColorCode, new SelectList(Model.printColor, "printColCode", "printColDescr", ""), new { @class = "btn-default" })
-        <br />
-
-        <h3>Front Jersey</h3>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.frontJersey)
-        </div>
-        <br />
-        <h3>Left Sleeve Jersey</h3>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.leftSleeveJersey)
-        </div>
-        <br />
-        <h3>Right Sleeve Jersey</h3>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.rightSleeveJersey)
-        </div>
-        <br />
-        <h3>Bottom Back Jersey</h3>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.bottomBackJersey)
-        </div>
-        <br />
-        <h3>Top Back Jersey</h3>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.topBackJersey)
+        <div class="dropDownSection">
+            <h4>Size</h4>
+            @Html.DropDownListFor(model => model.sizeCode, new SelectList(Model.sizes, "cd", "descr", ""), new { @class = "btn-default" })
+            
+            <h4>Clothing Color</h4>
+            @Html.DropDownListFor(model => model.clothesColorCode, new SelectList(Model.clothesColor, "clothColCode", "clothColDescr", ""), new { @class = "btn-default" })
+            
+            <h4>Print Color</h4>
+            @Html.DropDownListFor(model => model.printColorCode, new SelectList(Model.printColor, "printColCode", "printColDescr", ""), new { @class = "btn-default" })
+            
         </div>
 
-        
+        <div class="printLocationSection">
+            <h3>Front Jersey</h3>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.frontJersey)
+            </div>
+            
+            <h3>Left Sleeve Jersey</h3>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.leftSleeveJersey)
+            </div>
 
-        <button type="submit" style="margin-left: 45%;" value="submit">SUBMIT</button>
+            <h3>Right Sleeve Jersey</h3>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.rightSleeveJersey)
+            </div>
+            
+            <h3>Bottom Back Jersey</h3>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.bottomBackJersey)
+            </div>
+            
+            <h3>Top Back Jersey</h3>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.topBackJersey)
+            </div>
+        </div>
+        <br/>
+        <button type="submit" style="margin-left: 45%;" value="submit">Submit</button>
 
     }
+
 </div>
+
