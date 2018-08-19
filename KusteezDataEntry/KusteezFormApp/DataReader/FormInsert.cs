@@ -9,11 +9,11 @@ namespace KusteezFormApp.DataReader
 {
     public class FormInsert
     {
-        double finalCost = 0.00;
+       
 
         public int Insert(FormDetails fd)
         {
-
+            
             string gamerTag1 = fd.gamerTag;
             string clothingType1 = fd.clothingType;
             string sizeType1 = fd.sizeType;
@@ -31,32 +31,32 @@ namespace KusteezFormApp.DataReader
             if (fd.clothingType == "TS")
             {
                 clothingType1 = "T-Shirt 20.00$";
-                finalCost += 20.00;
+                fd.finalCost += 20.00;
             }
             else if (fd.clothingType == "TSF")
             {
                 clothingType1 = "T-SHIRT FEMME 20.00$";
-                finalCost += 20.00;
+                fd.finalCost += 20.00;
             }
             else if (fd.clothingType == "H")
             {
                 clothingType1 = "HOODIE 35.00$";
-                finalCost += 35.00;
+                fd.finalCost += 35.00;
             }
             else if (fd.clothingType == "LT")
             {
                 clothingType1 = "LONG TEE 25.00$";
-                finalCost += 25.00;
+                fd.finalCost += 25.00;
             }
             else if (fd.clothingType == "PO")
             {
                 clothingType1 = "PULL-OVER 30.00$";
-                finalCost += 30.00;
+                fd.finalCost += 30.00;
             }
             else if (fd.clothingType == "LEM")
             {
                 clothingType1 = "LAN ETS MERCH 5.00$ (Print only/Impression seulement";
-                finalCost += 5.00;
+                fd.finalCost += 5.00;
             }
 
             if (fd.sizeCode == "S")
@@ -117,28 +117,28 @@ namespace KusteezFormApp.DataReader
 
             if(fd.frontJersey != null)
             {
-                finalCost += 10;
+                fd.finalCost += 10;
             }
             if(fd.leftSleeveJersey != null)
             {
-                finalCost += 5;
+                fd.finalCost += 5;
             }
             if(fd.rightSleeveJersey != null)
             {
-                finalCost += 5;
+                fd.finalCost += 5;
             }
             if(fd.bottomBackJersey != null)
             {
-                finalCost += 10;
+                fd.finalCost += 10;
             }
             if(fd.topBackJersey != null)
             {
-                finalCost += 10;
+                fd.finalCost += 10;
             }
 
-            if(finalCost < 30)
+            if(fd.finalCost < 30)
             {
-                finalCost = 30;
+                fd.finalCost = 30;
             }
 
             string sql = "server=localhost;user id=root;password=1234;database=kusteez";
@@ -151,7 +151,7 @@ namespace KusteezFormApp.DataReader
             cmd.Parameters.AddWithValue("@clothingColor1", clothingColor1);
             cmd.Parameters.AddWithValue("@printColor1", printColor1);
             cmd.Parameters.AddWithValue("@completeTask", completeTask);
-            cmd.Parameters.AddWithValue("@finalCost", finalCost);
+            cmd.Parameters.AddWithValue("@finalCost", fd.finalCost);
 
             cmd.CommandText = "insert into kusteezform (gamerTag, clothing, size, color, printColor, status, finalCost ) values (@gamerTag1, @clothingType1, @sizeType1, @clothingColor1, @printColor1, @completeTask, @finalCost)";
 
@@ -164,7 +164,138 @@ namespace KusteezFormApp.DataReader
 
             return 0;
         }
+        public int GetEstimatedCost(FormDetails fd)
+        {
+            
+            string gamerTag1 = fd.gamerTag;
+            string clothingType1 = fd.clothingType;
+            string sizeType1 = fd.sizeType;
+            string clothingColor1 = fd.clothesColorType;
+            string printColor1 = fd.printColorType;
 
+            string frontJersey1 = fd.frontJersey;
+            string leftSleeveJersey1 = fd.leftSleeveJersey;
+            string rightSleeveJersey1 = fd.rightSleeveJersey;
+            string topBackJersey1 = fd.topBackJersey;
+            string bottomBackJersey1 = fd.bottomBackJersey;
+
+            //This is my connection string i have assigned the database file address path  
+            if (fd.clothingType == "TS")
+            {
+                clothingType1 = "T-Shirt 20.00$";
+                fd.estimatedCost += 20.00;
+            }
+            else if (fd.clothingType == "TSF")
+            {
+                clothingType1 = "T-SHIRT FEMME 20.00$";
+                fd.estimatedCost += 20.00;
+            }
+            else if (fd.clothingType == "H")
+            {
+                clothingType1 = "HOODIE 35.00$";
+                fd.estimatedCost += 35.00;
+            }
+            else if (fd.clothingType == "LT")
+            {
+                clothingType1 = "LONG TEE 25.00$";
+                fd.estimatedCost += 25.00;
+            }
+            else if (fd.clothingType == "PO")
+            {
+                clothingType1 = "PULL-OVER 30.00$";
+                fd.estimatedCost += 30.00;
+            }
+            else if (fd.clothingType == "LEM")
+            {
+                clothingType1 = "LAN ETS MERCH 5.00$ (Print only/Impression seulement";
+                fd.estimatedCost += 5.00;
+            }
+
+            if (fd.sizeCode == "S")
+            {
+                sizeType1 = "Small";
+            }
+            else if (fd.sizeCode == "M")
+            {
+                sizeType1 = "Medium";
+            }
+            else if (fd.sizeCode == "L")
+            {
+                sizeType1 = "Large";
+            }
+            else if (fd.sizeCode == "XL")
+            {
+                sizeType1 = "Extra Large";
+            }
+            else if (fd.sizeCode == "2XL")
+            {
+                sizeType1 = "2x Extra Large";
+            }
+            else if (fd.sizeCode == "3XL")
+            {
+                sizeType1 = "3x Extra Large";
+            }
+
+            if (fd.clothesColorCode == "01")
+            {
+                clothingColor1 = "Red";
+            }
+            else if (fd.clothesColorCode == "02")
+            {
+                clothingColor1 = "Purple";
+            }
+            else if (fd.clothesColorCode == "03")
+            {
+                clothingColor1 = "Blue";
+            }
+            else if (fd.clothesColorCode == "04")
+            {
+                clothingColor1 = " Green";
+            }
+
+
+            if (fd.printColorCode == "01")
+            {
+                printColor1 = "White";
+            }
+            else if (fd.printColorCode == "02")
+            {
+                printColor1 = "Black";
+            }
+            else if (fd.printColorCode == "03")
+            {
+                printColor1 = "Yellow";
+            }
+
+            if (fd.frontJersey != null)
+            {
+                fd.estimatedCost += 10;
+            }
+            if (fd.leftSleeveJersey != null)
+            {
+                fd.estimatedCost += 5;
+            }
+            if (fd.rightSleeveJersey != null)
+            {
+                fd.estimatedCost += 5;
+            }
+            if (fd.bottomBackJersey != null)
+            {
+                fd.estimatedCost += 10;
+            }
+            if (fd.topBackJersey != null)
+            {
+                fd.estimatedCost += 10;
+            }
+
+            if (fd.estimatedCost < 30)
+            {
+                fd.estimatedCost = 30;
+            }
+
+            
+            return 0;
+        }
         public List<SizeReference> GetSizeReferences()
         {
             List<SizeReference> sizes = new List<SizeReference>();

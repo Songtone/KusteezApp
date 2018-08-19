@@ -31,10 +31,32 @@ namespace KusteezFormApp.Controllers
         [HttpPost]
         public ActionResult Submit(FormDetails fd)
         {
-            FormInsert finsert = new FormInsert();
-            int Result = finsert.Insert(fd);
 
-            return RedirectToAction("Index",fd);
+            FormInsert infoReader = new FormInsert();
+            List<SizeReference> sizeRef = infoReader.GetSizeReferences();
+            List<ClothesColorReference> clothesColorRef = infoReader.GetClothesColorReference();
+            List<PrintColorReference> printColorRef = infoReader.GetPrintColorReference();
+
+            FormDetails formDetails = new FormDetails();
+
+            formDetails.sizes = sizeRef;
+            formDetails.clothesColor = clothesColorRef;
+            formDetails.printColor = printColorRef;
+
+            
+            FormInsert findEstimate = new FormInsert();
+            int Result = findEstimate.GetEstimatedCost(fd);
+
+            formDetails.estimatedCost = fd.estimatedCost;
+
+            if(fd.confirmationButton)
+            {
+                FormInsert finsert = new FormInsert();
+                int Result1 = finsert.Insert(fd);
+                return RedirectToAction("Index", fd);
+            }
+
+            return View("Index",formDetails);
         }
         
     }

@@ -28,7 +28,11 @@ namespace KusteezFormApp.Models
         public string topBackJersey { get; set; }
         public string bottomBackJersey { get; set; }
 
-        public int estimatedCost { get; set; }
+        public double finalCost { get; set; }
+        public double estimatedCost { get; set; }
+
+        public bool confirmationButton { get; set; }
+        public string estimateButton { get; set; }
 
         public FormDetails()
         {
@@ -53,7 +57,11 @@ namespace KusteezFormApp.Models
             this.topBackJersey = string.Empty;
             this.bottomBackJersey = string.Empty;
 
+            this.finalCost = 0;
             this.estimatedCost = 0;
+
+            this.confirmationButton = false;
+            this.estimateButton = "yes";
         }
 
     }
