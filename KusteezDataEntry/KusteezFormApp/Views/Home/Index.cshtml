@@ -84,14 +84,18 @@
             </div>
 
             <div class="sleeveSection">
-                <h3>Left Sleeve Jersey</h3>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.leftSleeveJersey)
+                <div class="leftSleeveSection">
+                    <h3>Left Sleeve Jersey</h3>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.leftSleeveJersey)
+                    </div>
                 </div>
 
-                <h3>Right Sleeve Jersey</h3>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.rightSleeveJersey)
+                <div class="rightSleeveSection">
+                    <h3>Right Sleeve Jersey</h3>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.rightSleeveJersey)
+                    </div>
                 </div>
             </div>
 
@@ -110,7 +114,7 @@
 
         <div class="confirmationSection">
             <div class="price">
-                <h4>Cost: @Html.DisplayFor(model => model.estimatedCost)</h4>
+                <h4>Cost: @Html.DisplayFor(model => model.estimatedCost) $</h4>
             </div>
 
             @Html.CheckBoxFor(model => model.confirmationButton)
