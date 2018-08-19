@@ -22,6 +22,14 @@ namespace KusteezFormApp.Models
         public string printColorCode { get; set; }
         public string printColorType { get; set; }
 
+        public string frontJersey { get; set; }
+        public string leftSleeveJersey { get; set; }
+        public string rightSleeveJersey { get; set; }
+        public string topBackJersey { get; set; }
+        public string bottomBackJersey { get; set; }
+
+        public int estimatedCost { get; set; }
+
         public FormDetails()
         {
             this.gamerTag = null;
@@ -38,6 +46,14 @@ namespace KusteezFormApp.Models
             this.printColor = new List<PrintColorReference>();
             this.printColorCode = string.Empty;
             this.printColorType = string.Empty;
+
+            this.frontJersey = string.Empty;
+            this.leftSleeveJersey = string.Empty;
+            this.rightSleeveJersey = string.Empty;
+            this.topBackJersey = string.Empty;
+            this.bottomBackJersey = string.Empty;
+
+            this.estimatedCost = 0;
         }
 
     }

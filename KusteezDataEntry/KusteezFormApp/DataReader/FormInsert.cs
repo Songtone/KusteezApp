@@ -21,6 +21,12 @@ namespace KusteezFormApp.DataReader
             string printColor1 = fd.printColorType;
             string completeTask = "Not Completed";
 
+            string frontJersey1 = fd.frontJersey;
+            string leftSleeveJersey1 = fd.leftSleeveJersey;
+            string rightSleeveJersey1 = fd.rightSleeveJersey;
+            string topBackJersey1 = fd.topBackJersey;
+            string bottomBackJersey1 = fd.bottomBackJersey;
+
             //This is my connection string i have assigned the database file address path  
             if (fd.clothingType == "TS")
             {
@@ -107,6 +113,32 @@ namespace KusteezFormApp.DataReader
             else if (fd.printColorCode == "03")
             {
                 printColor1 = "Yellow";
+            }
+
+            if(fd.frontJersey != null)
+            {
+                finalCost += 10;
+            }
+            if(fd.leftSleeveJersey != null)
+            {
+                finalCost += 5;
+            }
+            if(fd.rightSleeveJersey != null)
+            {
+                finalCost += 5;
+            }
+            if(fd.bottomBackJersey != null)
+            {
+                finalCost += 10;
+            }
+            if(fd.topBackJersey != null)
+            {
+                finalCost += 10;
+            }
+
+            if(finalCost < 30)
+            {
+                finalCost = 30;
             }
 
             string sql = "server=localhost;user id=root;password=1234;database=kusteez";

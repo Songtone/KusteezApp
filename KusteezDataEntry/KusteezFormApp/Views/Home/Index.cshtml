@@ -4,13 +4,13 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="~/css/index.css?v=6" />
 
-<div class="titleSection" >
+<div class="titleSection">
     <div class="imageLogo">
-    <img src="~/images/kusteez.jpeg" height="100" width="100"/>
-        </div>
+        <img src="~/images/kusteez.jpeg" height="100" width="100" />
+    </div>
     <div class="titlePage">
         <h3>Print your Gamer Tag on a clothing of your choice</h3>
     </div>
@@ -57,14 +57,42 @@
                 @Html.Label("LEM", "LAN ETS MERCH 5.00$ (Print only/Impression seulement")
             </div>
         </div>
-        
+
 
         @Html.DropDownListFor(model => model.sizeCode, new SelectList(Model.sizes, "cd", "descr", ""), new { @class = "btn-default" })
         <br />
         @Html.DropDownListFor(model => model.clothesColorCode, new SelectList(Model.clothesColor, "clothColCode", "clothColDescr", ""), new { @class = "btn-default" })
         <br />
         @Html.DropDownListFor(model => model.printColorCode, new SelectList(Model.printColor, "printColCode", "printColDescr", ""), new { @class = "btn-default" })
-        <br/>
+        <br />
+
+        <h3>Front Jersey</h3>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.frontJersey)
+        </div>
+        <br />
+        <h3>Left Sleeve Jersey</h3>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.leftSleeveJersey)
+        </div>
+        <br />
+        <h3>Right Sleeve Jersey</h3>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.rightSleeveJersey)
+        </div>
+        <br />
+        <h3>Bottom Back Jersey</h3>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.bottomBackJersey)
+        </div>
+        <br />
+        <h3>Top Back Jersey</h3>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.topBackJersey)
+        </div>
+
+        
+
         <button type="submit" style="margin-left: 45%;" value="submit">SUBMIT</button>
 
     }
