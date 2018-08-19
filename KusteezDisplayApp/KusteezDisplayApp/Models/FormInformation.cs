@@ -15,8 +15,13 @@ namespace KusteezDisplayApp.Models
         public string size { get; set; }
         public string printColor { get; set; }
         public string status { get; set; }
-        
-        
+
+        public string frontJersey { get; set; }
+        public string leftSleeveJersey { get; set; }
+        public string rightSleeveJersey { get; set; }
+        public string topBackJersey { get; set; }
+        public string bottomBackJersey { get; set; }
+
         public List<FormInformation> OrdersList { get; set; } 
 
         public FormInformation()
@@ -29,6 +34,13 @@ namespace KusteezDisplayApp.Models
             this.size = string.Empty;
             this.printColor = string.Empty;
             this.status = string.Empty;
+
+            this.frontJersey = string.Empty;
+            this.leftSleeveJersey = string.Empty;
+            this.rightSleeveJersey = string.Empty;
+            this.topBackJersey = string.Empty;
+            this.bottomBackJersey = string.Empty;
+
             this.OrdersList = new List<FormInformation>();
         }
     }

@@ -9,7 +9,7 @@
 <script>
 
 </script>
-<link rel="stylesheet" href="~/css/index.css?v=4" />
+<link rel="stylesheet" href="~/css/index.css?v=3" />
 
 <div class="titleSection">
     <div class="imageLogo">
@@ -90,28 +90,32 @@
                 @Html.EditorFor(model => model.rightSleeveJersey)
             </div>
 
+            <h3>Top Back Jersey</h3>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.topBackJersey)
+            </div>
+
             <h3>Bottom Back Jersey</h3>
             <div class="editor-field">
                 @Html.EditorFor(model => model.bottomBackJersey)
             </div>
 
-            <h3>Top Back Jersey</h3>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.topBackJersey)
-            </div>
         </div>
         <br />
-        <div class="Price">
-            <h4>@Html.DisplayFor(model => model.estimatedCost)</h4>
-        </div>
-        <div class="confirmOrEstimateSection">
+        
+        <div class="confirmationSection">
+            <div class="Price">
+
+                <h4>Cost: @Html.DisplayFor(model => model.estimatedCost)</h4>
+            </div>
 
             @Html.CheckBoxFor(model => model.confirmationButton)
             @Html.Label("confirm", "Confirmation")
             @*@Html.RadioButtonFor(model => model.confirmationButton, "yes", new { id = "yesButton" })
-            @Html.Label("confirm", "Confirmation")*@
+        @Html.Label("confirm", "Confirmation")*@
 
         </div>
+        <br/>
         <button type="submit" style="margin-left: 45%;" value="submit">Submit</button>
 
     }

@@ -152,8 +152,14 @@ namespace KusteezFormApp.DataReader
             cmd.Parameters.AddWithValue("@printColor1", printColor1);
             cmd.Parameters.AddWithValue("@completeTask", completeTask);
             cmd.Parameters.AddWithValue("@finalCost", fd.finalCost);
+            cmd.Parameters.AddWithValue("@frontJersey1", frontJersey1);
+            cmd.Parameters.AddWithValue("@leftSleeveJersey1", leftSleeveJersey1);
+            cmd.Parameters.AddWithValue("@rightSleeveJersey1", rightSleeveJersey1);
+            cmd.Parameters.AddWithValue("@topBackJersey1", topBackJersey1);
+            cmd.Parameters.AddWithValue("@bottomBackJersey1", bottomBackJersey1);
 
-            cmd.CommandText = "insert into kusteezform (gamerTag, clothing, size, color, printColor, status, finalCost ) values (@gamerTag1, @clothingType1, @sizeType1, @clothingColor1, @printColor1, @completeTask, @finalCost)";
+            cmd.CommandText = "insert into kusteezform (gamerTag, clothing, size, color, printColor, status, finalCost, frontJersey, leftSleeveJersey, rightSleeveJersey, topBackJersey, bottomBackJersey ) " +
+                "values (@gamerTag1, @clothingType1, @sizeType1, @clothingColor1, @printColor1, @completeTask, @finalCost, @frontJersey1, @leftSleeveJersey1, @rightSleeveJersey1, @topBackJersey1, @bottomBackJersey1)";
 
             conn.Open();
 

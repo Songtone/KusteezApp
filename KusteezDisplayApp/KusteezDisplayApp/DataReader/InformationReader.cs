@@ -16,7 +16,7 @@ namespace KusteezDisplayApp.DataReader
             MySqlConnection conn = new MySqlConnection(sql);
             MySqlCommand cmd = conn.CreateCommand();
 
-            cmd.CommandText = "select orderID,gamerTag, clothing, size, printColor, status, finalCost from kusteezform";
+            cmd.CommandText = "select orderID, gamerTag, clothing, size, printColor, status, finalCost, frontJersey, leftSleeveJersey, rightSleeveJersey, topBackJersey, bottomBackJersey from kusteezform";
 
             List<FormInformation> infoList = new List<FormInformation>();
             
@@ -35,6 +35,11 @@ namespace KusteezDisplayApp.DataReader
                 fi.size = reader["size"].ToString();
                 fi.printColor = reader["printColor"].ToString();
                 fi.status = reader["status"].ToString();
+                fi.frontJersey = reader["frontJersey"].ToString();
+                fi.leftSleeveJersey = reader["leftSleeveJersey"].ToString();
+                fi.rightSleeveJersey = reader["rightSleeveJersey"].ToString();
+                fi.topBackJersey = reader["topBackJersey"].ToString();
+                fi.bottomBackJersey = reader["bottomBackJersey"].ToString();
 
                infoList.Add(fi);
             }

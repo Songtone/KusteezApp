@@ -19,6 +19,11 @@
             <th>Size</th>
             <th>Print Color</th>
             <th>Price</th>
+            <th>Front Of Jersey</th>
+            <th>Left Sleeve Of Jersey</th>
+            <th>Right Sleeve Of Jersey</th>
+            <th>Top Back Of Jersey</th>
+            <th>Bottom Back Of Jersey</th>
         </tr>
         @foreach (FormInformation info in Model.OrdersList)
         {
@@ -30,6 +35,11 @@
                 <td>@info.size</td>
                 <td>@info.printColor</td>
                 <td>@info.finalCost</td>
+                <td>@info.frontJersey</td>
+                <td>@info.leftSleeveJersey</td>
+                <td>@info.rightSleeveJersey</td>
+                <td>@info.topBackJersey</td>
+                <td>@info.bottomBackJersey</td>
             </tr>
         }
     </table>
