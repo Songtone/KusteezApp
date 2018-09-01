@@ -18,12 +18,14 @@ namespace KusteezFormApp.Controllers
             List<SizeReference> sizeRef = infoReader.GetSizeReferences();
             List<ClothesColorReference> clothesColorRef = infoReader.GetClothesColorReference();
             List<PrintColorReference> printColorRef = infoReader.GetPrintColorReference();
+            List<CustomLaceColorReference> laceColorRef = infoReader.GetCustomLaceColorReference();
 
             FormDetails formDetails = new FormDetails();
 
             formDetails.sizes = sizeRef;
             formDetails.clothesColor = clothesColorRef;
             formDetails.printColor = printColorRef;
+            formDetails.laceColor = laceColorRef;
 
             return View("Index",formDetails);
         }
@@ -36,14 +38,15 @@ namespace KusteezFormApp.Controllers
             List<SizeReference> sizeRef = infoReader.GetSizeReferences();
             List<ClothesColorReference> clothesColorRef = infoReader.GetClothesColorReference();
             List<PrintColorReference> printColorRef = infoReader.GetPrintColorReference();
+            List<CustomLaceColorReference> laceColorRef = infoReader.GetCustomLaceColorReference();
 
             FormDetails formDetails = new FormDetails();
 
             formDetails.sizes = sizeRef;
             formDetails.clothesColor = clothesColorRef;
             formDetails.printColor = printColorRef;
+            formDetails.laceColor = laceColorRef;
 
-            
             FormInsert findEstimate = new FormInsert();
             //int Result = findEstimate.GetEstimatedCost(fd);
 

@@ -93,6 +93,7 @@
     border-width: 2px;*/
 }
 
+
 .printLocationSection {
     text-align:center;
     /*border: solid;
@@ -127,7 +128,29 @@
     border-width: 2px;*/
 }
 
-.confirmationSection{
+.customerInfoSection {
+    /*border: solid;
+    border-color: red;
+    border-width: 2px;*/
+    text-align: center;
+    overflow: hidden;
+}
+
+.phoneNumberSection {
+    text-align: center;
+    display: inline-block;
+    float: left;
+    margin-left: 25%;
+}
+
+.ticketNumberSection {
+    text-align: center;
+    display: inline-block;
+    float: right;
+    margin-right: 25%;
+}
+
+.confirmationSection {
     text-align: center;
 }
 

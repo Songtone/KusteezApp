@@ -9,7 +9,7 @@
 <script>
 
 </script>
-<link rel="stylesheet" href="~/css/index.css?v=9" />
+<link rel="stylesheet" href="~/css/index.css?v=3" />
 
 <div class="titleSection">
     <div class="imageLogo">
@@ -26,15 +26,15 @@
         @Html.AntiForgeryToken();
         @Html.ValidationSummary(true);
 
-        <div class="gamerTagSection">
-            <div class="editor-label">
-                Gamer Tag!
-            </div>
+        @*<div class="gamerTagSection">
+                <div class="editor-label">
+                    Gamer Tag!
+                </div>
 
-            <div class="editor-field">
-                @Html.EditorFor(model => model.gamerTag)
-            </div>
-        </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.gamerTag)
+                </div>
+            </div>*@
         <br />
         <div class="clothingSection">
             <div class="clothingTitle">
@@ -43,22 +43,30 @@
             <div class="clothingOptions">
 
                 @Html.RadioButtonFor(model => model.clothingType, "TS", new { id = "TS" })
-                @Html.Label("TS", "T-SHIRT 20.00$")
-
-                @Html.RadioButtonFor(model => model.clothingType, "TSF", new { id = "TFS" })
-                @Html.Label("TSF", "T-SHIRT FEMME 20.00$")
+                @Html.Label("TS", "T-SHIRT (20$)")
 
                 @Html.RadioButtonFor(model => model.clothingType, "H", new { id = "H" })
-                @Html.Label("H", "HOODIE 35.00$")
+                @Html.Label("H", "HOODIE (35$)")
 
-                @Html.RadioButtonFor(model => model.clothingType, "LT", new { id = "LT" })
-                @Html.Label("LT", "LONG TEE 25.00$")
+                @Html.RadioButtonFor(model => model.clothingType, "ZH", new { id = "ZH" })
+                @Html.Label("ZH", "ZIP HOODIE (35$)")
+
+                @Html.RadioButtonFor(model => model.clothingType, "C", new { id = "C" })
+                @Html.Label("C", "CAPS (25$)")
+
+                @Html.RadioButtonFor(model => model.clothingType, "P", new { id = "P" })
+                @Html.Label("P", "PILLOWCASE (25$)")
+                <br />
+                @Html.RadioButtonFor(model => model.clothingType, "PT", new { id = "PT" })
+                @Html.Label("PT", "PERFORMANCE TEE (30$)")
+
+                @Html.RadioButtonFor(model => model.clothingType, "B", new { id = "B" })
+                @Html.Label("B", "BANDANA (25$)")
 
                 @Html.RadioButtonFor(model => model.clothingType, "PO", new { id = "PO" })
-                @Html.Label("PO", "PULL-OVER 30.00$")
-                <br />
-                @Html.RadioButtonFor(model => model.clothingType, "LEM", new { id = "LEM" })
-                @Html.Label("LEM", "LAN ETS MERCH 5.00$ (Print only/Impression seulement")
+                @Html.Label("PO", "PRINT ONLY")
+
+
             </div>
         </div>
 
@@ -75,42 +83,61 @@
                 <h4>Print Color</h4>
                 @Html.DropDownListFor(model => model.printColorCode, new SelectList(Model.printColor, "printColCode", "printColDescr", ""), new { @class = "btn-default" })
             </div>
+            <div class="laceColorSection">
+                <h4>Lace Color (5$)</h4>
+                @Html.DropDownListFor(model => model.laceColorCode, new SelectList(Model.laceColor, "laceColorCode", "laceColorDesc", ""), new { @class = "btn-default" })
+            </div>
         </div>
 
         <div class="printLocationSection">
-            <h3>Front Jersey</h3>
+            <h3>Front Jersey(10$)</h3>
             <div class="editor-field">
                 @Html.EditorFor(model => model.frontJersey)
             </div>
 
             <div class="sleeveSection">
                 <div class="leftSleeveSection">
-                    <h3>Left Sleeve Jersey</h3>
+                    <h3>Left Sleeve Jersey(5$)</h3>
                     <div class="editor-field">
                         @Html.EditorFor(model => model.leftSleeveJersey)
                     </div>
                 </div>
 
                 <div class="rightSleeveSection">
-                    <h3>Right Sleeve Jersey</h3>
+                    <h3>Right Sleeve Jersey(5$)</h3>
                     <div class="editor-field">
                         @Html.EditorFor(model => model.rightSleeveJersey)
                     </div>
                 </div>
             </div>
 
-            <h3>Top Back Jersey</h3>
+            <h3>Top Back Jersey(10$)</h3>
             <div class="editor-field">
                 @Html.EditorFor(model => model.topBackJersey)
             </div>
 
-            <h3>Bottom Back Jersey</h3>
+            <h3>Bottom Back Jersey(10$)</h3>
             <div class="editor-field">
                 @Html.EditorFor(model => model.bottomBackJersey)
             </div>
 
         </div>
         <br />
+        <div class="customerInfoSection">
+            <div class="phoneNumberSection">
+                <h4>Phone Number</h4>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.phoneNumber)
+                </div>
+            </div>
+
+            <div class="ticketNumberSection">
+                <h4>Ticket Number</h4>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ticketNumber)
+                </div>
+            </div>
+        </div>
 
         <div class="confirmationSection">
             <div class="price">
@@ -124,8 +151,8 @@
 
         </div>
         <br />
-        <button type="submit" style="margin-left: 45%;" value="submit">Submit</button>
-        <br/>
+        <button type="submit" style="margin-left: 46%;" value="submit">Submit</button>
+        <br />
     }
 
 </div>

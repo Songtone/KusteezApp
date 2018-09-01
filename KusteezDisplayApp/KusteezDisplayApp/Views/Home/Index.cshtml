@@ -14,32 +14,38 @@
         <tr>
             <th>Status</th>
             <th>Order ID</th>
-            <th>Gamer Tag</th>
+            @*<th>Gamer Tag</th>*@
             <th>Clothing</th>
             <th>Size</th>
             <th>Print Color</th>
+            <th>Lace Color</th>
             <th>Price</th>
-            <th>Front Of Jersey</th>
-            <th>Left Sleeve Of Jersey</th>
-            <th>Right Sleeve Of Jersey</th>
-            <th>Top Back Of Jersey</th>
+            <th>Front</th>
+            <th>Left Sleeve</th>
+            <th>Right Sleeve</th>
+            <th>Top Back</th>
             <th>Bottom Back</th>
+            <th>Phone Number</th>
+            <th>Ticket Number</th>
         </tr>
         @foreach (FormInformation info in Model.OrdersList)
         {
             <tr>
                 <td>@info.status</td>
                 <td>@info.orderID</td>
-                <td>@info.gamerTag</td>
+                @*<td>@info.gamerTag</td>*@
                 <td>@info.clothingType</td>
                 <td>@info.size</td>
                 <td>@info.printColor</td>
+                <td>@info.laceColor</td>
                 <td>@info.finalCost</td>
                 <td>@info.frontJersey</td>
                 <td>@info.leftSleeveJersey</td>
                 <td>@info.rightSleeveJersey</td>
                 <td>@info.topBackJersey</td>
                 <td>@info.bottomBackJersey</td>
+                <td>@info.phoneNumber</td>
+                <td>@info.ticketNumber</td>
             </tr>
         }
     </table>

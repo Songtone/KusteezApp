@@ -8,6 +8,9 @@ namespace KusteezFormApp.Models
     public class FormDetails
     {
         public string gamerTag { get; set; }
+        public string phoneNumber { get; set; }
+        public string ticketNumber { get; set; }
+
         public string clothingType { get; set; }
         //public string size { get; set; }
         public List<SizeReference> sizes { get; set; }
@@ -21,6 +24,10 @@ namespace KusteezFormApp.Models
         public List<PrintColorReference> printColor { get; set; }
         public string printColorCode { get; set; }
         public string printColorType { get; set; }
+
+        public List<CustomLaceColorReference> laceColor { get; set; }
+        public string laceColorCode { get; set; }
+        public string laceColorType { get; set; }
 
         public string frontJersey { get; set; }
         public string leftSleeveJersey { get; set; }
@@ -37,6 +44,9 @@ namespace KusteezFormApp.Models
         public FormDetails()
         {
             this.gamerTag = null;
+            this.phoneNumber = string.Empty;
+            this.ticketNumber = string.Empty;
+
             this.clothingType = string.Empty;
             //this.size = string.Empty;
             this.sizes = new List<SizeReference>();
@@ -50,6 +60,10 @@ namespace KusteezFormApp.Models
             this.printColor = new List<PrintColorReference>();
             this.printColorCode = string.Empty;
             this.printColorType = string.Empty;
+
+            this.laceColor = new List<CustomLaceColorReference>();
+            this.laceColorCode = string.Empty;
+            this.laceColorType = string.Empty;
 
             this.frontJersey = string.Empty;
             this.leftSleeveJersey = string.Empty;

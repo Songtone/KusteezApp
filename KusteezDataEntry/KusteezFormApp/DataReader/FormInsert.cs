@@ -15,10 +15,14 @@ namespace KusteezFormApp.DataReader
         {
             
             string gamerTag1 = fd.gamerTag;
+            string phoneNumber1 = fd.phoneNumber;
+            string tickerNumber1 = fd.ticketNumber;
+
             string clothingType1 = fd.clothingType;
             string sizeType1 = fd.sizeType;
             string clothingColor1 = fd.clothesColorType;
             string printColor1 = fd.printColorType;
+            string laceColor1 = fd.laceColorType;
             string completeTask = "Not Completed";
 
             string frontJersey1 = fd.frontJersey;
@@ -30,33 +34,48 @@ namespace KusteezFormApp.DataReader
             //This is my connection string i have assigned the database file address path  
             if (fd.clothingType == "TS")
             {
-                clothingType1 = "T-Shirt 20.00$";
-                fd.finalCost += 20.00;
+                clothingType1 = "T-Shirt";
+                fd.finalCost += 20;
             }
             else if (fd.clothingType == "TSF")
             {
-                clothingType1 = "T-SHIRT FEMME 20.00$";
-                fd.finalCost += 20.00;
+                clothingType1 = "T-SHIRT FEMME";
+                fd.finalCost += 20;
             }
             else if (fd.clothingType == "H")
             {
-                clothingType1 = "HOODIE 35.00$";
-                fd.finalCost += 35.00;
+                clothingType1 = "HOODIE";
+                fd.finalCost += 35;
             }
-            else if (fd.clothingType == "LT")
+            else if (fd.clothingType == "ZH")
             {
-                clothingType1 = "LONG TEE 25.00$";
-                fd.finalCost += 25.00;
+                clothingType1 = "ZIP HOODIE";
+                fd.finalCost += 35;
+            }
+            else if (fd.clothingType == "C")
+            {
+                clothingType1 = "CAPS";
+                fd.finalCost += 25;
+            }
+            else if (fd.clothingType == "P")
+            {
+                clothingType1 = "PILLOWCASE";
+                fd.finalCost += 25;
+            }
+            else if (fd.clothingType == "PT")
+            {
+                clothingType1 = "PERFORMANCE TEE";
+                fd.finalCost += 30;
+            }
+            else if (fd.clothingType == "B")
+            {
+                clothingType1 = "BANDANA";
+                fd.finalCost += 25;
             }
             else if (fd.clothingType == "PO")
             {
-                clothingType1 = "PULL-OVER 30.00$";
-                fd.finalCost += 30.00;
-            }
-            else if (fd.clothingType == "LEM")
-            {
-                clothingType1 = "LAN ETS MERCH 5.00$ (Print only/Impression seulement";
-                fd.finalCost += 5.00;
+                clothingType1 = "PRINT ONLY";
+                fd.finalCost += 0;
             }
 
             if (fd.sizeCode == "S")
@@ -182,7 +201,43 @@ namespace KusteezFormApp.DataReader
             {
                 printColor1 = "Cyan";
             }
-          
+
+            
+            if(fd.laceColorCode == "01")
+            {
+                laceColor1 = "Red";
+                fd.finalCost += 5;
+            }
+            else if(fd.laceColorCode == "02")
+            {
+                laceColor1 = "Pink";
+                fd.finalCost += 5;
+            }
+            else if (fd.laceColorCode == "03")
+            {
+                laceColor1 = "Yellow";
+                fd.finalCost += 5;
+            }
+            else if (fd.laceColorCode == "04")
+            {
+                laceColor1 = "Blue";
+                fd.finalCost += 5;
+            }
+            else if (fd.laceColorCode == "05")
+            {
+                laceColor1 = "Orange";
+                fd.finalCost += 5;
+            }
+            else if (fd.laceColorCode == "06")
+            {
+                laceColor1 = "Green";
+                fd.finalCost += 5;
+            }
+            else if (fd.laceColorCode == "07")
+            {
+                laceColor1 = "Purple";
+                fd.finalCost += 5;
+            }
 
             if (fd.frontJersey != null)
             {
@@ -227,6 +282,7 @@ namespace KusteezFormApp.DataReader
                 cmd.Parameters.AddWithValue("@sizeType1", sizeType1);
                 cmd.Parameters.AddWithValue("@clothingColor1", clothingColor1);
                 cmd.Parameters.AddWithValue("@printColor1", printColor1);
+                cmd.Parameters.AddWithValue("@laceColor1", laceColor1);
                 cmd.Parameters.AddWithValue("@completeTask", completeTask);
                 cmd.Parameters.AddWithValue("@finalCost", fd.finalCost);
                 cmd.Parameters.AddWithValue("@frontJersey1", frontJersey1);
@@ -234,9 +290,11 @@ namespace KusteezFormApp.DataReader
                 cmd.Parameters.AddWithValue("@rightSleeveJersey1", rightSleeveJersey1);
                 cmd.Parameters.AddWithValue("@topBackJersey1", topBackJersey1);
                 cmd.Parameters.AddWithValue("@bottomBackJersey1", bottomBackJersey1);
+                cmd.Parameters.AddWithValue("@phoneNumber1", phoneNumber1);
+                cmd.Parameters.AddWithValue("@ticketNumber1", tickerNumber1);
 
-                cmd.CommandText = "insert into kusteezform (gamerTag, clothing, size, color, printColor, status, finalCost, frontJersey, leftSleeveJersey, rightSleeveJersey, topBackJersey, bottomBackJersey ) " +
-                    "values (@gamerTag1, @clothingType1, @sizeType1, @clothingColor1, @printColor1, @completeTask, @finalCost, @frontJersey1, @leftSleeveJersey1, @rightSleeveJersey1, @topBackJersey1, @bottomBackJersey1)";
+                cmd.CommandText = "insert into kusteezform (gamerTag, clothing, size, color, printColor, laceColor, status, finalCost, frontJersey, leftSleeveJersey, rightSleeveJersey, topBackJersey, bottomBackJersey, phoneNumber, ticketNumber ) " +
+                    "values (@gamerTag1, @clothingType1, @sizeType1, @clothingColor1, @printColor1, @laceColor1, @completeTask, @finalCost, @frontJersey1, @leftSleeveJersey1, @rightSleeveJersey1, @topBackJersey1, @bottomBackJersey1, @phoneNumber1, @ticketNumber1)";
 
                 conn.Open();
 
@@ -435,7 +493,6 @@ namespace KusteezFormApp.DataReader
 
         }
 
-
         public List<ClothesColorReference> GetClothesColorReference(){
 
             List<ClothesColorReference> clothesColor = new List<ClothesColorReference>();
@@ -633,6 +690,68 @@ namespace KusteezFormApp.DataReader
            
             return printColor;
 
+        }
+        public List<CustomLaceColorReference> GetCustomLaceColorReference()
+        {
+            List<CustomLaceColorReference> laceColor = new List<CustomLaceColorReference>();
+
+            CustomLaceColorReference laceRef = new CustomLaceColorReference();
+
+            laceRef.laceColorCode = "00";
+            laceRef.laceColorDesc = "Choose a lace color";
+
+            laceColor.Add(laceRef);
+
+            CustomLaceColorReference laceRef1 = new CustomLaceColorReference();
+
+            laceRef1.laceColorCode = "01";
+            laceRef1.laceColorDesc = "Red";
+
+            laceColor.Add(laceRef1);
+
+            CustomLaceColorReference laceRef2 = new CustomLaceColorReference();
+
+            laceRef2.laceColorCode = "02";
+            laceRef2.laceColorDesc = "Pink";
+
+            laceColor.Add(laceRef2);
+
+            CustomLaceColorReference laceRef3 = new CustomLaceColorReference();
+
+            laceRef3.laceColorCode = "03";
+            laceRef3.laceColorDesc = "Yellow";
+
+            laceColor.Add(laceRef3);
+
+            CustomLaceColorReference laceRef4 = new CustomLaceColorReference();
+
+            laceRef4.laceColorCode = "04";
+            laceRef4.laceColorDesc = "Blue";
+
+            laceColor.Add(laceRef4);
+
+            CustomLaceColorReference laceRef5 = new CustomLaceColorReference();
+
+            laceRef5.laceColorCode = "05";
+            laceRef5.laceColorDesc = "Orange";
+
+            laceColor.Add(laceRef5);
+
+            CustomLaceColorReference laceRef6 = new CustomLaceColorReference();
+
+            laceRef6.laceColorCode = "06";
+            laceRef6.laceColorDesc = "Green";
+
+            laceColor.Add(laceRef6);
+
+            CustomLaceColorReference laceRef7 = new CustomLaceColorReference();
+
+            laceRef7.laceColorCode = "07";
+            laceRef7.laceColorDesc = "Purple";
+
+            laceColor.Add(laceRef7);
+
+            return laceColor;
         }
     }
 }
