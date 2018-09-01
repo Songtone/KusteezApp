@@ -16,7 +16,7 @@ namespace KusteezDisplayApp.DataReader
             MySqlConnection conn = new MySqlConnection(sql);
             MySqlCommand cmd = conn.CreateCommand();
 
-            cmd.CommandText = "select orderID, gamerTag, clothing, size, printColor, laceColor, status, finalCost, frontJersey, leftSleeveJersey, rightSleeveJersey, topBackJersey, bottomBackJersey, phoneNumber, ticketNumber from kusteezform";
+            cmd.CommandText = "select orderID, clothing, size, printColor, laceColor, font, status, finalCost, frontJersey, leftSleeveJersey, rightSleeveJersey, topBackJersey, bottomBackJersey, comment, phoneNumber, ticketNumber from kusteezform";
 
             List<FormInformation> infoList = new List<FormInformation>();
             
@@ -30,17 +30,18 @@ namespace KusteezDisplayApp.DataReader
 
                 fi.orderID = reader["orderID"] == null ? 0 : Convert.ToInt32(reader["orderID"]);
                 fi.finalCost = reader["finalCost"] == null ? 0 : Convert.ToDouble(reader["finalCost"]);
-                fi.gamerTag = reader["gamerTag"].ToString();
                 fi.clothingType = reader["clothing"].ToString();
                 fi.size = reader["size"].ToString();
                 fi.printColor = reader["printColor"].ToString();
                 fi.laceColor = reader["laceColor"].ToString();
+                fi.font = reader["font"].ToString();
                 fi.status = reader["status"].ToString();
                 fi.frontJersey = reader["frontJersey"].ToString();
                 fi.leftSleeveJersey = reader["leftSleeveJersey"].ToString();
                 fi.rightSleeveJersey = reader["rightSleeveJersey"].ToString();
                 fi.topBackJersey = reader["topBackJersey"].ToString();
                 fi.bottomBackJersey = reader["bottomBackJersey"].ToString();
+                fi.comments = reader["comment"].ToString();
                 fi.phoneNumber = reader["phoneNumber"].ToString();
                 fi.ticketNumber = reader["ticketNumber"].ToString();
 

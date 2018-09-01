@@ -9,16 +9,18 @@ namespace KusteezFormApp.DataReader
 {
     public class FormInsert
     {
-       
+
 
         public int Insert(FormDetails fd)
         {
+
             
-            string gamerTag1 = fd.gamerTag;
             string phoneNumber1 = fd.phoneNumber;
             string tickerNumber1 = fd.ticketNumber;
+            string comments1 = fd.comments;
 
             string clothingType1 = fd.clothingType;
+            string fontType1 = fd.fontType;
             string sizeType1 = fd.sizeType;
             string clothingColor1 = fd.clothesColorType;
             string printColor1 = fd.printColorType;
@@ -34,12 +36,7 @@ namespace KusteezFormApp.DataReader
             //This is my connection string i have assigned the database file address path  
             if (fd.clothingType == "TS")
             {
-                clothingType1 = "T-Shirt";
-                fd.finalCost += 20;
-            }
-            else if (fd.clothingType == "TSF")
-            {
-                clothingType1 = "T-SHIRT FEMME";
+                clothingType1 = "T-SHIRT";
                 fd.finalCost += 20;
             }
             else if (fd.clothingType == "H")
@@ -103,22 +100,22 @@ namespace KusteezFormApp.DataReader
                 sizeType1 = "3x Extra Large";
             }
 
-            if(fd.clothesColorCode == "01")
+            if (fd.clothesColorCode == "01")
             {
                 clothingColor1 = "White";
             }
-            else if(fd.clothesColorCode == "02")
+            else if (fd.clothesColorCode == "02")
             {
                 clothingColor1 = "Navy";
             }
-            else if(fd.clothesColorCode == "03")
+            else if (fd.clothesColorCode == "03")
             {
                 clothingColor1 = "Yellow";
             }
-            else if(fd.clothesColorCode == "04")
+            else if (fd.clothesColorCode == "04")
             {
                 clothingColor1 = "Black";
-            }else if(fd.clothesColorCode == "05")
+            } else if (fd.clothesColorCode == "05")
             {
                 clothingColor1 = "Kelly";
             }
@@ -202,13 +199,13 @@ namespace KusteezFormApp.DataReader
                 printColor1 = "Cyan";
             }
 
-            
-            if(fd.laceColorCode == "01")
+
+            if (fd.laceColorCode == "01")
             {
                 laceColor1 = "Red";
                 fd.finalCost += 5;
             }
-            else if(fd.laceColorCode == "02")
+            else if (fd.laceColorCode == "02")
             {
                 laceColor1 = "Pink";
                 fd.finalCost += 5;
@@ -237,6 +234,27 @@ namespace KusteezFormApp.DataReader
             {
                 laceColor1 = "Purple";
                 fd.finalCost += 5;
+            }
+
+            if (fd.fontType == "JM")
+            {
+                fontType1 = "JERSEY M54";
+            }
+            else if (fd.fontType == "N")
+            {
+                fontType1 = "NOTEWORTHY";
+            }
+            else if (fd.fontType == "BN")
+            {
+                fontType1 = "BEBAS NEUE";
+            }
+            else if (fd.fontType == "D")
+            {
+                fontType1 = "DEATHWISH";
+            }
+            else if(fd.fontType == "H")
+            {
+                fontType1 = "HELVETICA";
             }
 
             if (fd.frontJersey != null)
@@ -277,12 +295,13 @@ namespace KusteezFormApp.DataReader
                 MySqlConnection conn = new MySqlConnection(sql);
                 MySqlCommand cmd = conn.CreateCommand();
 
-                cmd.Parameters.AddWithValue("@gamerTag1", gamerTag1);
+                
                 cmd.Parameters.AddWithValue("@clothingType1", clothingType1);
                 cmd.Parameters.AddWithValue("@sizeType1", sizeType1);
                 cmd.Parameters.AddWithValue("@clothingColor1", clothingColor1);
                 cmd.Parameters.AddWithValue("@printColor1", printColor1);
                 cmd.Parameters.AddWithValue("@laceColor1", laceColor1);
+                cmd.Parameters.AddWithValue("@fontType1", fontType1);
                 cmd.Parameters.AddWithValue("@completeTask", completeTask);
                 cmd.Parameters.AddWithValue("@finalCost", fd.finalCost);
                 cmd.Parameters.AddWithValue("@frontJersey1", frontJersey1);
@@ -290,11 +309,12 @@ namespace KusteezFormApp.DataReader
                 cmd.Parameters.AddWithValue("@rightSleeveJersey1", rightSleeveJersey1);
                 cmd.Parameters.AddWithValue("@topBackJersey1", topBackJersey1);
                 cmd.Parameters.AddWithValue("@bottomBackJersey1", bottomBackJersey1);
+                cmd.Parameters.AddWithValue("@comments1", comments1);
                 cmd.Parameters.AddWithValue("@phoneNumber1", phoneNumber1);
                 cmd.Parameters.AddWithValue("@ticketNumber1", tickerNumber1);
 
-                cmd.CommandText = "insert into kusteezform (gamerTag, clothing, size, color, printColor, laceColor, status, finalCost, frontJersey, leftSleeveJersey, rightSleeveJersey, topBackJersey, bottomBackJersey, phoneNumber, ticketNumber ) " +
-                    "values (@gamerTag1, @clothingType1, @sizeType1, @clothingColor1, @printColor1, @laceColor1, @completeTask, @finalCost, @frontJersey1, @leftSleeveJersey1, @rightSleeveJersey1, @topBackJersey1, @bottomBackJersey1, @phoneNumber1, @ticketNumber1)";
+                cmd.CommandText = "insert into kusteezform (clothing, size, color, printColor, laceColor, font, status, finalCost, frontJersey, leftSleeveJersey, rightSleeveJersey, topBackJersey, bottomBackJersey, comment, phoneNumber, ticketNumber ) " +
+                    "values (@clothingType1, @sizeType1, @clothingColor1, @printColor1, @laceColor1, @fontType1, @completeTask, @finalCost, @frontJersey1, @leftSleeveJersey1, @rightSleeveJersey1, @topBackJersey1, @bottomBackJersey1, @comments1, @phoneNumber1, @ticketNumber1)";
 
                 conn.Open();
 

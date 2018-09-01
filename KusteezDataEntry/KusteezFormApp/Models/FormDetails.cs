@@ -7,11 +7,13 @@ namespace KusteezFormApp.Models
 {
     public class FormDetails
     {
-        public string gamerTag { get; set; }
+        
         public string phoneNumber { get; set; }
         public string ticketNumber { get; set; }
 
         public string clothingType { get; set; }
+        public string fontType { get; set; }
+
         //public string size { get; set; }
         public List<SizeReference> sizes { get; set; }
         public string sizeCode { get; set; }
@@ -35,6 +37,8 @@ namespace KusteezFormApp.Models
         public string topBackJersey { get; set; }
         public string bottomBackJersey { get; set; }
 
+        public string comments { get; set; }
+
         public double finalCost { get; set; }
         public double estimatedCost { get; set; }
 
@@ -43,11 +47,13 @@ namespace KusteezFormApp.Models
 
         public FormDetails()
         {
-            this.gamerTag = null;
+            
             this.phoneNumber = string.Empty;
             this.ticketNumber = string.Empty;
 
             this.clothingType = string.Empty;
+            this.fontType = string.Empty;
+
             //this.size = string.Empty;
             this.sizes = new List<SizeReference>();
             this.sizeCode = string.Empty;
@@ -70,6 +76,8 @@ namespace KusteezFormApp.Models
             this.rightSleeveJersey = string.Empty;
             this.topBackJersey = string.Empty;
             this.bottomBackJersey = string.Empty;
+
+            this.comments = string.Empty;
 
             this.finalCost = 0;
             this.estimatedCost = 0;

@@ -9,7 +9,7 @@
 <script>
 
 </script>
-<link rel="stylesheet" href="~/css/index.css?v=3" />
+<link rel="stylesheet" href="~/css/index.css?v=2" />
 
 <div class="titleSection">
     <div class="imageLogo">
@@ -25,16 +25,7 @@
     {
         @Html.AntiForgeryToken();
         @Html.ValidationSummary(true);
-
-        @*<div class="gamerTagSection">
-                <div class="editor-label">
-                    Gamer Tag!
-                </div>
-
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.gamerTag)
-                </div>
-            </div>*@
+        
         <br />
         <div class="clothingSection">
             <div class="clothingTitle">
@@ -88,7 +79,30 @@
                 @Html.DropDownListFor(model => model.laceColorCode, new SelectList(Model.laceColor, "laceColorCode", "laceColorDesc", ""), new { @class = "btn-default" })
             </div>
         </div>
+        <div class="fontSection">
+            <div class="fontTitle">
+                <h4>Fonts</h4>
+            </div>
 
+            <div class="fontOptions">
+
+                @Html.RadioButtonFor(model => model.fontType, "JM", new { id = "JM" })
+                @Html.Label("JM", "JERSEY M54")
+
+                @Html.RadioButtonFor(model => model.fontType, "N", new { id = "N" })
+                @Html.Label("N", "NOTEWORTHY")
+
+                @Html.RadioButtonFor(model => model.fontType, "BN", new { id = "BN" })
+                @Html.Label("BN", "BEBAS NEUE")
+
+                @Html.RadioButtonFor(model => model.fontType, "D", new { id = "D" })
+                @Html.Label("D", "DEATHWISH")
+
+                @Html.RadioButtonFor(model => model.fontType, "H", new { id = "H" })
+                @Html.Label("H", "HELVETICA")
+
+            </div>
+        </div>
         <div class="printLocationSection">
             <h3>Front Jersey(10$)</h3>
             <div class="editor-field">
@@ -121,6 +135,15 @@
                 @Html.EditorFor(model => model.bottomBackJersey)
             </div>
 
+        </div>
+        <br />
+        <div class="commentSection">
+            <div class="commentTitle">
+                <h4>Comments</h4>
+            </div>
+            <div class="commentBox">
+                @Html.TextAreaFor(model => model.comments, new { @class = "form-control" })
+            </div>
         </div>
         <br />
         <div class="customerInfoSection">
