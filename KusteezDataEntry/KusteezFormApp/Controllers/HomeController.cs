@@ -45,16 +45,18 @@ namespace KusteezFormApp.Controllers
 
             
             FormInsert findEstimate = new FormInsert();
-            int Result = findEstimate.GetEstimatedCost(fd);
+            //int Result = findEstimate.GetEstimatedCost(fd);
 
+            int Result = findEstimate.Insert(fd);
             formDetails.estimatedCost = fd.estimatedCost;
+            
 
             if(fd.confirmationButton)
             {
-                FormInsert finsert = new FormInsert();
-                int Result1 = finsert.Insert(fd);
+                //FormInsert finsert = new FormInsert();
+                //int Result1 = finsert.Insert(fd);
                 return RedirectToAction("Index", fd);
-            }
+           }
 
             return View("Index",formDetails);
         }
