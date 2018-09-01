@@ -160,10 +160,31 @@ namespace KusteezFormApp.DataReader
             }
             else if (fd.printColorCode == "03")
             {
-                printColor1 = "Yellow";
+                printColor1 = "Royal Blue";
             }
+            else if (fd.printColorCode == "04")
+            {
+                printColor1 = "Orange";
+            }
+            else if (fd.printColorCode == "05")
+            {
+                printColor1 = "Red";
+            }
+            else if (fd.printColorCode == "06")
+            {
+                printColor1 = "Green";
+            }
+            else if (fd.printColorCode == "07")
+            {
+                printColor1 = "Gold";
+            }
+            else if (fd.printColorCode == "08")
+            {
+                printColor1 = "Cyan";
+            }
+          
 
-            if(fd.frontJersey != null)
+            if (fd.frontJersey != null)
             {
                 fd.finalCost += 10;
             }
@@ -570,10 +591,46 @@ namespace KusteezFormApp.DataReader
             PrintColorReference printColorRef3 = new PrintColorReference();
 
             printColorRef3.printColCode = "03";
-            printColorRef3.printColDescr = "Yellow";
+            printColorRef3.printColDescr = "Royal Blue";
 
             printColor.Add(printColorRef3);
 
+            PrintColorReference printColorRef4 = new PrintColorReference();
+
+            printColorRef4.printColCode = "04";
+            printColorRef4.printColDescr = "Orange";
+
+            printColor.Add(printColorRef4);
+
+            PrintColorReference printColorRef5 = new PrintColorReference();
+
+            printColorRef5.printColCode = "05";
+            printColorRef5.printColDescr = "Red";
+
+            printColor.Add(printColorRef5);
+
+            PrintColorReference printColorRef6 = new PrintColorReference();
+
+            printColorRef6.printColCode = "06";
+            printColorRef6.printColDescr = "Green";
+
+            printColor.Add(printColorRef6);
+
+            PrintColorReference printColorRef7 = new PrintColorReference();
+
+            printColorRef7.printColCode = "07";
+            printColorRef7.printColDescr = "Gold";
+
+            printColor.Add(printColorRef7);
+
+            PrintColorReference printColorRef8 = new PrintColorReference();
+
+            printColorRef8.printColCode = "08";
+            printColorRef8.printColDescr = "Cyan";
+
+            printColor.Add(printColorRef8);
+
+           
             return printColor;
 
         }
