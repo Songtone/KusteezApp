@@ -46,12 +46,30 @@ namespace KusteezFormApp.Controllers
             formDetails.clothesColor = clothesColorRef;
             formDetails.printColor = printColorRef;
             formDetails.laceColor = laceColorRef;
+            string test = "";
+
+            test = fd.clothingType;
+            test = formDetails.clothingType;
 
             FormInsert findEstimate = new FormInsert();
             //int Result = findEstimate.GetEstimatedCost(fd);
 
             int Result = findEstimate.Insert(fd);
             formDetails.estimatedCost = fd.estimatedCost;
+
+            if (fd.clothingType == "")
+            {
+                string x = "YAY";
+                ModelState.AddModelError("clothingType", "test");
+            }
+            if (ModelState.IsValid)
+            {
+                string x = "YAY";
+            }
+            else
+            {
+                string y = "awsome";
+            }
             
 
             if(fd.confirmationButton)
