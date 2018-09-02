@@ -5,7 +5,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<link rel="stylesheet" href="~/css/index.css?v=2" />
+<link rel="stylesheet" href="~/css/index.css?v=4" />
+
+<style type="text/css">
+    
+    .Not{
+        background-color: red;
+    }
+
+</style>
 
 <div class="informationTable">
 
@@ -32,7 +40,7 @@
         </tr>
         @foreach (FormInformation info in Model.OrdersList)
         {
-            <tr>
+            <tr class="@info.status">
                 <td>@info.status</td>
                 <td>@info.orderID</td>
                 <td>@info.clothingType</td>
