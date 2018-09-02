@@ -8,9 +8,13 @@
 <link rel="stylesheet" href="~/css/index.css?v=4" />
 
 <style type="text/css">
-    
-    .Not{
-        background-color: red;
+
+    .Not {
+        background-color: #ff8080;
+    }
+
+    .Complete {
+        background-color: #8cff66;
     }
 
 </style>
@@ -40,8 +44,8 @@
         </tr>
         @foreach (FormInformation info in Model.OrdersList)
         {
-            <tr class="@info.status">
-                <td>@info.status</td>
+            <tr>
+                <td class="@info.status">@info.status</td>
                 <td>@info.orderID</td>
                 <td>@info.clothingType</td>
                 <td>@info.size</td>
