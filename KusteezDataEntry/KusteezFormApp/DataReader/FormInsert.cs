@@ -34,6 +34,8 @@ namespace KusteezFormApp.DataReader
             string bottomBackJersey1 = fd.bottomBackJersey;
 
             //This is my connection string i have assigned the database file address path  
+
+            //clothing type section-----------------------------------------------------------------------------------------------
             if (fd.clothingType == "TS")
             {
                 clothingType1 = "T-SHIRT";
@@ -74,7 +76,7 @@ namespace KusteezFormApp.DataReader
                 clothingType1 = "PRINT ONLY";
                 fd.finalCost += 0;
             }
-
+            //size section-----------------------------------------------------------------------------------------------
             if (fd.sizeCode == "S")
             {
                 sizeType1 = "Small";
@@ -100,6 +102,7 @@ namespace KusteezFormApp.DataReader
                 sizeType1 = "3x Extra Large";
             }
 
+            //clothing color section-----------------------------------------------------------------------------------------------
             if (fd.clothesColorCode == "01")
             {
                 clothingColor1 = "White";
@@ -164,8 +167,7 @@ namespace KusteezFormApp.DataReader
                 clothingColor1 = "Red";
             }
 
-
-
+            //print color section-----------------------------------------------------------------------------------------------
             if (fd.printColorCode == "01")
             {
                 printColor1 = "White";
@@ -199,7 +201,7 @@ namespace KusteezFormApp.DataReader
                 printColor1 = "Cyan";
             }
 
-
+            //lace color section-----------------------------------------------------------------------------------------------
             if (fd.laceColorCode == "01")
             {
                 laceColor1 = "Red";
@@ -236,6 +238,7 @@ namespace KusteezFormApp.DataReader
                 fd.finalCost += 5;
             }
 
+            //font type section-----------------------------------------------------------------------------------------------
             if (fd.fontType == "JM")
             {
                 fontType1 = "JERSEY M54";
@@ -257,6 +260,7 @@ namespace KusteezFormApp.DataReader
                 fontType1 = "HELVETICA";
             }
 
+            //print locations section-----------------------------------------------------------------------------------------------
             if (fd.frontJersey != null)
             {
                 fd.finalCost += 10;
@@ -278,7 +282,8 @@ namespace KusteezFormApp.DataReader
                 fd.finalCost += 10;
             }
 
-            if(fd.frontJersey != null || fd.bottomBackJersey != null || fd.topBackJersey!= null)
+            //cost logic section-----------------------------------------------------------------------------------------------
+            if (fd.frontJersey != null || fd.bottomBackJersey != null || fd.topBackJersey!= null)
             {
                 fd.finalCost -= 10;
             }
@@ -291,6 +296,7 @@ namespace KusteezFormApp.DataReader
 
             if (fd.confirmationButton)
             {
+                //sending all the information needed to the database
                 string sql = "server=localhost;user id=root;password=1234;database=kusteez";
                 MySqlConnection conn = new MySqlConnection(sql);
                 MySqlCommand cmd = conn.CreateCommand();
@@ -325,138 +331,8 @@ namespace KusteezFormApp.DataReader
             }
             return 0;
         }
-        //public int GetEstimatedCost(FormDetails fd)
-        //{
-            
-        //    string gamerTag1 = fd.gamerTag;
-        //    string clothingType1 = fd.clothingType;
-        //    string sizeType1 = fd.sizeType;
-        //    string clothingColor1 = fd.clothesColorType;
-        //    string printColor1 = fd.printColorType;
-
-        //    string frontJersey1 = fd.frontJersey;
-        //    string leftSleeveJersey1 = fd.leftSleeveJersey;
-        //    string rightSleeveJersey1 = fd.rightSleeveJersey;
-        //    string topBackJersey1 = fd.topBackJersey;
-        //    string bottomBackJersey1 = fd.bottomBackJersey;
-
-        //    //This is my connection string i have assigned the database file address path  
-        //    if (fd.clothingType == "TS")
-        //    {
-        //        clothingType1 = "T-Shirt 20.00$";
-        //        fd.estimatedCost += 20.00;
-        //    }
-        //    else if (fd.clothingType == "TSF")
-        //    {
-        //        clothingType1 = "T-SHIRT FEMME 20.00$";
-        //        fd.estimatedCost += 20.00;
-        //    }
-        //    else if (fd.clothingType == "H")
-        //    {
-        //        clothingType1 = "HOODIE 35.00$";
-        //        fd.estimatedCost += 35.00;
-        //    }
-        //    else if (fd.clothingType == "LT")
-        //    {
-        //        clothingType1 = "LONG TEE 25.00$";
-        //        fd.estimatedCost += 25.00;
-        //    }
-        //    else if (fd.clothingType == "PO")
-        //    {
-        //        clothingType1 = "PULL-OVER 30.00$";
-        //        fd.estimatedCost += 30.00;
-        //    }
-        //    else if (fd.clothingType == "LEM")
-        //    {
-        //        clothingType1 = "LAN ETS MERCH 5.00$ (Print only/Impression seulement";
-        //        fd.estimatedCost += 5.00;
-        //    }
-
-        //    if (fd.sizeCode == "S")
-        //    {
-        //        sizeType1 = "Small";
-        //    }
-        //    else if (fd.sizeCode == "M")
-        //    {
-        //        sizeType1 = "Medium";
-        //    }
-        //    else if (fd.sizeCode == "L")
-        //    {
-        //        sizeType1 = "Large";
-        //    }
-        //    else if (fd.sizeCode == "XL")
-        //    {
-        //        sizeType1 = "Extra Large";
-        //    }
-        //    else if (fd.sizeCode == "2XL")
-        //    {
-        //        sizeType1 = "2x Extra Large";
-        //    }
-        //    else if (fd.sizeCode == "3XL")
-        //    {
-        //        sizeType1 = "3x Extra Large";
-        //    }
-
-        //    if (fd.clothesColorCode == "01")
-        //    {
-        //        clothingColor1 = "Red";
-        //    }
-        //    else if (fd.clothesColorCode == "02")
-        //    {
-        //        clothingColor1 = "Purple";
-        //    }
-        //    else if (fd.clothesColorCode == "03")
-        //    {
-        //        clothingColor1 = "Blue";
-        //    }
-        //    else if (fd.clothesColorCode == "04")
-        //    {
-        //        clothingColor1 = " Green";
-        //    }
-
-
-        //    if (fd.printColorCode == "01")
-        //    {
-        //        printColor1 = "White";
-        //    }
-        //    else if (fd.printColorCode == "02")
-        //    {
-        //        printColor1 = "Black";
-        //    }
-        //    else if (fd.printColorCode == "03")
-        //    {
-        //        printColor1 = "Yellow";
-        //    }
-
-        //    if (fd.frontJersey != null)
-        //    {
-        //        fd.estimatedCost += 10;
-        //    }
-        //    if (fd.leftSleeveJersey != null)
-        //    {
-        //        fd.estimatedCost += 5;
-        //    }
-        //    if (fd.rightSleeveJersey != null)
-        //    {
-        //        fd.estimatedCost += 5;
-        //    }
-        //    if (fd.bottomBackJersey != null)
-        //    {
-        //        fd.estimatedCost += 10;
-        //    }
-        //    if (fd.topBackJersey != null)
-        //    {
-        //        fd.estimatedCost += 10;
-        //    }
-
-        //    if (fd.estimatedCost < 30)
-        //    {
-        //        fd.estimatedCost = 30;
-        //    }
-
-            
-        //    return 0;
-        //}
+        
+            //each of the following functions creates a list to be shown in the dropdown
         public List<SizeReference> GetSizeReferences()
         {
             List<SizeReference> sizes = new List<SizeReference>();

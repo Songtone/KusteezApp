@@ -14,7 +14,7 @@ namespace KusteezDisplayApp.Controllers
         public IActionResult Index()
         {
            
-            FormInformation fi = new FormInformation();
+            FormInformation fi = new FormInformation();//retrieve the information
             
             fi.OrdersList = InformationReader.GetInformation();
            
@@ -22,7 +22,7 @@ namespace KusteezDisplayApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Confirm(FormInformation fi)
+        public IActionResult Confirm(FormInformation fi)//the status change
         {
             InformationReader reader = new InformationReader();
             int result = reader.insertCompletedStatus(fi);

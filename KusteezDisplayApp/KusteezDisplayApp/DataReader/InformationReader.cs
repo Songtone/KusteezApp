@@ -9,7 +9,7 @@ namespace KusteezDisplayApp.DataReader
 {
     public class InformationReader
     {
-        public static List<FormInformation> GetInformation(){
+        public static List<FormInformation> GetInformation(){//this function will retrieve all the information and place them in a list to be shown in a table
             
             
             string sql = "server=localhost;user id=root;password=1234;database=kusteez";
@@ -51,7 +51,7 @@ namespace KusteezDisplayApp.DataReader
             return infoList;
             }
 
-        public int insertCompletedStatus(FormInformation fi)
+        public int insertCompletedStatus(FormInformation fi)//this function is used to change the status of an order from not complete to completed
         {
             
             string completedID = fi.completedID;

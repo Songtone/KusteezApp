@@ -12,7 +12,7 @@ namespace KusteezFormApp.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index()//the main page when it loads it will have all the page refreshed and the dropdown list filled properly.
         {
             FormInsert infoReader = new FormInsert();
             List<SizeReference> sizeRef = infoReader.GetSizeReferences();
@@ -31,7 +31,7 @@ namespace KusteezFormApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Submit(FormDetails fd)
+        public ActionResult Submit(FormDetails fd)//submitting the information to the database
         {
 
             FormInsert infoReader = new FormInsert();
@@ -57,13 +57,14 @@ namespace KusteezFormApp.Controllers
             int Result = findEstimate.Insert(fd);
             formDetails.estimatedCost = fd.estimatedCost;
 
-            if (fd.clothingType == "")
+            //validation starts here
+            if (fd.clothingType == "")//makes sure they choose an option
             {
                 string x = "YAY";
                 ModelState.AddModelError("clothingType", "Choose a clothing type");
             }
 
-            if (fd.clothingType != "PO")
+            if (fd.clothingType != "PO")//if the choice is not Print Only they must choose size and color
             {
                 if (fd.sizeCode == "00")
                 {
@@ -76,7 +77,7 @@ namespace KusteezFormApp.Controllers
                 
             }
 
-            if (fd.printColorCode == "00")
+            if (fd.printColorCode == "00")//if they choose print only, they must choose a print color
             {
                 ModelState.AddModelError("printColorCode", "Choose a print color");
             }
@@ -88,7 +89,7 @@ namespace KusteezFormApp.Controllers
                 }
             }
 
-            if(fd.ticketNumber == null)
+            if(fd.ticketNumber == null)//makes sure the ticket section is filled out
             {
                 ModelState.AddModelError("ticketNumber", "Enter a ticket number");
             }
@@ -97,7 +98,6 @@ namespace KusteezFormApp.Controllers
             {
                 if (ModelState.IsValid)
                 {
-
                     //FormInsert finsert = new FormInsert();
                     //int Result1 = finsert.Insert(fd);
                     return RedirectToAction("Index", fd);
