@@ -94,9 +94,9 @@ namespace KusteezFormApp.Controllers
                 ModelState.AddModelError("ticketNumber", "Enter a ticket number");
             }
 
-            if (fd.confirmationButton)
+            if (fd.confirmationButton)//if the confirmation isnt pressed, we can't continue
             {
-                if (ModelState.IsValid)
+                if (ModelState.IsValid)//if the confirmation button is clicked, we still need to check if the previous validations passed.
                 {
                     //FormInsert finsert = new FormInsert();
                     //int Result1 = finsert.Insert(fd);
