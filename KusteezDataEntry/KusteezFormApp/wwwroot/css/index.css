@@ -37,6 +37,7 @@
     border-color: black;
     border-width: 2px;
     align-content:center;
+    text-align:center;
 }
 
 .gamerTagSection {
@@ -93,9 +94,16 @@
     border-width: 2px;*/
 }
 
+.laceColorSection {
+    display: inline-block;
+    /*border: solid;
+    border-color: red;
+    border-width: 2px;*/
+}
+
 
 .printLocationSection {
-    text-align:center;
+    text-align: center;
     /*border: solid;
     border-color: black;
     border-width: 2px;*/

@@ -512,7 +512,6 @@ namespace KusteezFormApp.DataReader
             return sizes;
 
         }
-
         public List<ClothesColorReference> GetClothesColorReference(){
 
             List<ClothesColorReference> clothesColor = new List<ClothesColorReference>();

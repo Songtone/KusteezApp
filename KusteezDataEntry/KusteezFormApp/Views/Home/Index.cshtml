@@ -11,7 +11,7 @@
 <script>
 
 </script>
-<link rel="stylesheet" href="~/css/index.css?v=1" />
+<link rel="stylesheet" href="~/css/index.css?v=3" />
 
 <div class="titleSection">
     <div class="imageLogo">
@@ -27,7 +27,7 @@
     {
         @Html.AntiForgeryToken();
         @Html.ValidationSummary(true);
-        
+
         <br />
         <div class="clothingSection">
             <div class="clothingTitle">
@@ -61,26 +61,38 @@
 
 
             </div>
-            <h4>@Html.ValidationMessageFor(m => m.clothingType, "", new { @class = "error" })</h4>
+            <div style="color: red">
+                @Html.ValidationMessageFor(m => m.clothingType, "", new { @class = "error" })
+            </div>
         </div>
 
         <div class="dropDownSection">
             <div class="sizeSection">
                 <h4>Size</h4>
                 @Html.DropDownListFor(model => model.sizeCode, new SelectList(Model.sizes, "cd", "descr", ""), new { @class = "btn-default" })
+                <div style="color: red">
+                    @Html.ValidationMessageFor(m => m.sizeCode, "", new { @class = "error" })
+                </div>
             </div>
             <div class="clothingColorSection">
                 <h4>Clothing Color</h4>
                 @Html.DropDownListFor(model => model.clothesColorCode, new SelectList(Model.clothesColor, "clothColCode", "clothColDescr", ""), new { @class = "btn-default" })
+                <div style="color: red">
+                    @Html.ValidationMessageFor(m => m.clothesColorCode, "", new { @class = "error" })
+                </div>
             </div>
             <div class="printColorSection">
                 <h4>Print Color</h4>
                 @Html.DropDownListFor(model => model.printColorCode, new SelectList(Model.printColor, "printColCode", "printColDescr", ""), new { @class = "btn-default" })
+                <div style="color: red">
+                    @Html.ValidationMessageFor(m => m.printColorCode, "", new { @class = "error" })
+                </div>
             </div>
-            <div class="laceColorSection">
-                <h4>Lace Color (5$)</h4>
-                @Html.DropDownListFor(model => model.laceColorCode, new SelectList(Model.laceColor, "laceColorCode", "laceColorDesc", ""), new { @class = "btn-default" })
-            </div>
+
+        </div>
+        <div class="laceColorSection">
+            <h4>Lace Color (5$)</h4>
+            @Html.DropDownListFor(model => model.laceColorCode, new SelectList(Model.laceColor, "laceColorCode", "laceColorDesc", ""), new { @class = "btn-default" })
         </div>
         <div class="fontSection">
             <div class="fontTitle">
@@ -104,6 +116,9 @@
                 @Html.RadioButtonFor(model => model.fontType, "H", new { id = "H" })
                 @Html.Label("H", "HELVETICA")
 
+            </div>
+            <div style="color: red">
+                @Html.ValidationMessageFor(m => m.fontType, "", new { @class = "error" })
             </div>
         </div>
         <div class="printLocationSection">
@@ -162,6 +177,9 @@
                 <div class="editor-field">
                     @Html.EditorFor(model => model.ticketNumber)
                 </div>
+                <div style="color: red">
+                    @Html.ValidationMessageFor(m => m.ticketNumber, "", new { @class = "error" })
+                </div>
             </div>
         </div>
 
@@ -177,7 +195,7 @@
 
         </div>
         <br />
-        <button type="submit" style="margin-left: 46%;" value="submit">Submit</button>
+        <button type="submit" value="submit">Submit</button>
         <br />
     }
 

@@ -60,26 +60,55 @@ namespace KusteezFormApp.Controllers
             if (fd.clothingType == "")
             {
                 string x = "YAY";
-                ModelState.AddModelError("clothingType", "test");
+                ModelState.AddModelError("clothingType", "Choose a clothing type");
             }
-            if (ModelState.IsValid)
+
+            if (fd.clothingType != "PO")
             {
-                string x = "YAY";
+                if (fd.sizeCode == "00")
+                {
+                    ModelState.AddModelError("sizeCode", "Choose a size");
+                }
+                if(fd.clothesColorCode == "00")
+                {
+                    ModelState.AddModelError("clothesColorCode", "Choose a clothes color");
+                }
+                
+            }
+
+            if (fd.printColorCode == "00")
+            {
+                ModelState.AddModelError("printColorCode", "Choose a print color");
             }
             else
             {
-                string y = "awsome";
+                if(fd.fontType == "")
+                {
+                    ModelState.AddModelError("fontType", "Choose a font");
+                }
             }
-            
 
-            if(fd.confirmationButton)
+            if(fd.ticketNumber == null)
             {
-                //FormInsert finsert = new FormInsert();
-                //int Result1 = finsert.Insert(fd);
-                return RedirectToAction("Index", fd);
-           }
+                ModelState.AddModelError("ticketNumber", "Enter a ticket number");
+            }
 
-            return View("Index",formDetails);
+            if (fd.confirmationButton)
+            {
+                if (ModelState.IsValid)
+                {
+
+                    //FormInsert finsert = new FormInsert();
+                    //int Result1 = finsert.Insert(fd);
+                    return RedirectToAction("Index", fd);
+                }
+                else
+                {
+                    return View("Index", formDetails);
+                }
+            }
+            return View("Index", formDetails);
+
         }
         
     }
