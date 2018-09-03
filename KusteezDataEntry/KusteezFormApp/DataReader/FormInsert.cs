@@ -95,11 +95,11 @@ namespace KusteezFormApp.DataReader
             }
             else if (fd.sizeCode == "2XL")
             {
-                sizeType1 = "2x Extra Large";
+                sizeType1 = "2XL";
             }
             else if (fd.sizeCode == "3XL")
             {
-                sizeType1 = "3x Extra Large";
+                sizeType1 = "3XL";
             }
 
             //clothing color section-----------------------------------------------------------------------------------------------
@@ -367,21 +367,21 @@ namespace KusteezFormApp.DataReader
             SizeReference sizeRef4 = new SizeReference();
 
             sizeRef4.cd = "XL";
-            sizeRef4.descr = "Extra Large";
+            sizeRef4.descr = "XL";
 
             sizes.Add(sizeRef4);
 
             SizeReference sizeRef5 = new SizeReference();
 
             sizeRef5.cd = "2XL";
-            sizeRef5.descr = "2x Extra Large";
+            sizeRef5.descr = "2XL";
 
             sizes.Add(sizeRef5);
 
             SizeReference sizeRef6 = new SizeReference();
 
             sizeRef6.cd = "3XL";
-            sizeRef6.descr = "3X Extra Large";
+            sizeRef6.descr = "3XL";
 
             sizes.Add(sizeRef6);
 

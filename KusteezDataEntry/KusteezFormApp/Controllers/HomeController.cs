@@ -60,7 +60,7 @@ namespace KusteezFormApp.Controllers
             //validation starts here
             if (fd.clothingType == "")//makes sure they choose an option
             {
-                string x = "YAY";
+               
                 ModelState.AddModelError("clothingType", "Choose a clothing type");
             }
 
@@ -89,10 +89,10 @@ namespace KusteezFormApp.Controllers
                 }
             }
 
-            if(fd.ticketNumber == null)//makes sure the ticket section is filled out
-            {
-                ModelState.AddModelError("ticketNumber", "Enter a ticket number");
-            }
+            //if(fd.ticketNumber == null)//makes sure the ticket section is filled out
+            //{
+            //    ModelState.AddModelError("ticketNumber", "Enter a ticket number");
+            //}
 
             if (fd.confirmationButton)//if the confirmation isnt pressed, we can't continue
             {

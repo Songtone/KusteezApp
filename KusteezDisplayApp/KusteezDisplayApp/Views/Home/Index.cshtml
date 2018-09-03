@@ -17,6 +17,17 @@
         background-color: #8cff66;
     }
 
+    .frontLeftBorder {
+        border-left-color: black;
+        border-left-style: solid;
+        border-left-width: 3px;
+    }
+
+    .bottomBackRightBorder {
+        border-right-color: black;
+        border-right-style: solid;
+        border-right-width: 3px;
+    }
 </style>
 
 <div class="informationTable">
@@ -33,11 +44,11 @@
             <th>Lace Color</th>
             <th>Font</th>
             <th>Price</th>
-            <th>Front</th>
+            <th class="frontLeftBorder">Front</th>
             <th>Left Sleeve</th>
             <th>Right Sleeve</th>
             <th>Top Back</th>
-            <th>Bottom Back</th>
+            <th class="bottomBackRightBorder">Bottom Back</th>
             <th>Phone Number</th>
             <th>Ticket Number</th>
             <th>Comments</th>
@@ -53,11 +64,11 @@
                 <td>@info.laceColor</td>
                 <td>@info.font</td>
                 <td>@info.finalCost</td>
-                <td>@info.frontJersey</td>
+                <td class="frontLeftBorder">@info.frontJersey</td>
                 <td>@info.leftSleeveJersey</td>
                 <td>@info.rightSleeveJersey</td>
                 <td>@info.topBackJersey</td>
-                <td>@info.bottomBackJersey</td>
+                <td class="bottomBackRightBorder">@info.bottomBackJersey</td>
                 <td>@info.phoneNumber</td>
                 <td>@info.ticketNumber</td>
                 <td>@info.comments</td>
