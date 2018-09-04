@@ -54,14 +54,15 @@ namespace KusteezFormApp.Controllers
             FormInsert findEstimate = new FormInsert();
             //int Result = findEstimate.GetEstimatedCost(fd);
 
-            int Result = findEstimate.Insert(fd);
-            formDetails.estimatedCost = fd.estimatedCost;
+            
+
 
             //validation starts here
             if (fd.clothingType == "")//makes sure they choose an option
             {
                
                 ModelState.AddModelError("clothingType", "Choose a clothing type");
+                fd.confirmationButton = false;
             }
 
             if (fd.clothingType != "PO")//if the choice is not Print Only they must choose size and color
@@ -69,10 +70,12 @@ namespace KusteezFormApp.Controllers
                 if (fd.sizeCode == "00")
                 {
                     ModelState.AddModelError("sizeCode", "Choose a size");
+                    fd.confirmationButton = false;
                 }
                 if(fd.clothesColorCode == "00")
                 {
                     ModelState.AddModelError("clothesColorCode", "Choose a clothes color");
+                    fd.confirmationButton = false;
                 }
                 
             }
@@ -80,12 +83,14 @@ namespace KusteezFormApp.Controllers
             if (fd.printColorCode == "00")//if they choose print only, they must choose a print color
             {
                 ModelState.AddModelError("printColorCode", "Choose a print color");
+                fd.confirmationButton = false;
             }
             else
             {
                 if(fd.fontType == "")
                 {
                     ModelState.AddModelError("fontType", "Choose a font");
+                    fd.confirmationButton = false;
                 }
             }
 
@@ -94,16 +99,20 @@ namespace KusteezFormApp.Controllers
             //    ModelState.AddModelError("ticketNumber", "Enter a ticket number");
             //}
 
+            int Result = findEstimate.Insert(fd);
+            formDetails.estimatedCost = fd.estimatedCost;
+
             if (fd.confirmationButton)//if the confirmation isnt pressed, we can't continue
             {
                 if (ModelState.IsValid)//if the confirmation button is clicked, we still need to check if the previous validations passed.
                 {
                     //FormInsert finsert = new FormInsert();
-                    //int Result1 = finsert.Insert(fd);
+                   
                     return RedirectToAction("Index", fd);
                 }
                 else
                 {
+
                     return View("Index", formDetails);
                 }
             }

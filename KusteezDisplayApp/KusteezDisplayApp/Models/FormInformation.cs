@@ -11,6 +11,7 @@ namespace KusteezDisplayApp.Models
         public double finalCost { get; set; }
         public string completedID { get; set; }
         public string clothingType { get; set; }
+        public string clothingColor { get; set; }
         public string size { get; set; }
         public string printColor { get; set; }
         public string status { get; set; }
@@ -35,6 +36,7 @@ namespace KusteezDisplayApp.Models
             this.finalCost = 0.00;
             this.completedID = string.Empty;
             this.clothingType = string.Empty;
+            this.clothingColor = string.Empty;
             this.size = string.Empty;
             this.printColor = string.Empty;
             this.status = string.Empty;
